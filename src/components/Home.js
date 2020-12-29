@@ -74,7 +74,13 @@ return(
                         />
                     <ButtonSpinner text="Search" loading={loading} />
         </Form>
-        <Result />
+        <Result yelpData={yelpData}/>
+
+        {/* example from To-Do List
+        {todos.map(todo => (
+       //mapping through the array of todos in the state
+       <Todo key={todo.id} text={todo.text} compete={todo.compete} toggleComplete={()=> toggleComplete(todo.id)} deleteTodo={() => deleteTodo(todo.id)}/> */}
+     {/* ))} */}
     </>
 )
 
