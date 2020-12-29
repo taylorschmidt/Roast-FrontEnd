@@ -27,8 +27,12 @@ const Cafe = (params) => {
     console.log(currentUserId)
     const handleClick = (e) => {
         e.preventDefault()
-        
-        axios.post('https://localhost:8080/api/cafe/all', {YelpId: yelpId})
+        const yelp = {
+            id: currentUserId,
+            YelpId: yelpId
+        }
+        console.log('YELP OBJ:' , yelp)
+        axios.post('http://localhost:8080/api/cafe/all', yelp)
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
     }
