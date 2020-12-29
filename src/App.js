@@ -9,6 +9,7 @@ import Layout from "./components/common/Layout"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
 import Profile from "./components/Profile"
+import Cafe from "./components/Cafe"
 
 import "./css/App.css";
 
@@ -20,6 +21,7 @@ const App = () => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/profile" component={Profile}/>
+        <Route path='/cafe' component={Cafe} />
       </Switch>
     </Layout>
   )
