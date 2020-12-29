@@ -7,8 +7,30 @@ const Result = ({yelpData}) => {
     
     
     //display function here that maps through yelpData state - example below from StarWars
-    const display = () => {}
-    // const display = () => {
+    const display = () => {
+        return yelpData.map((data, index)=> {
+            return (
+                <div key={index} className = "col s12 m6">
+                    <div className="card">
+                        <img className="card-img-top" src={data.image_url} alt="cafe picture"/>
+                    <div className="card-body">
+                        <h5 className="card-title">{data.name}</h5>
+                        <p className="card-text">{data.location.address1}</p>
+                    </div>
+                    <Link to={{
+                        pathname: `/cafe/${index}`,
+                        state: {data}
+                    }}
+                    key={data.name}
+                    >
+                        More Information
+                    </Link> 
+                </div>
+                </div>
+            )
+        })
+    }
+    {/* // const display = () => { */}
     //     return starwarsData.map((data, index)=>{
     //         return (
     //             <div key={index} className = "col s12 m6">
@@ -45,8 +67,8 @@ const Result = ({yelpData}) => {
 
  return(
      <div>
-         Results will render here when search button is clicked. For now - see results from search in Console.
-         {/* Insert display function here!*/}
+         {/* Results will render here when search button is clicked. For now - see results from search in Console. */}
+         <div className="row">{display()}</div>
          {/* From Star Wars:
          <div className="row">{display()}</div> */}
      </div>
