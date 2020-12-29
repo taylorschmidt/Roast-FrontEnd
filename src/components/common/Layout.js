@@ -22,7 +22,7 @@ const Layout = (props) => {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">
-          Cool Site
+          Roast
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
