@@ -9,13 +9,13 @@ const Cafe = (params) => {
   const form = useRef()
   console.log(params.location.state.data);
   const cafeData = params.location.state.data;
-  const currentUser = getCurrentUser();
-  const currentUserId = currentUser.id;
   const [yelpId, setYelpId] = useState(cafeData);
   const [content, setContent] = useState('')
   
 
   const handleClick = (e) => {
+    const currentUser = getCurrentUser();
+    const currentUserId = currentUser.id;
     e.preventDefault();
     const yelp = {
       id: currentUserId,
@@ -56,6 +56,8 @@ const Cafe = (params) => {
   }
 
   const addComment = () => {
+    const currentUser = getCurrentUser();
+    const currentUserId = currentUser.id;
     console.log("Here is the input:", currentUserId, content, yelpId.id)
     const newComment = {
         userId: currentUserId,
