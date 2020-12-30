@@ -53,7 +53,10 @@ const Cafe = (params) => {
 const addYelpToMongo = () =>{
 
 console.log("Yelp: ", {YelpId: yelpId})
-   axios.post("http://localhost:8080/api/yelp", {YelpId: yelpId})
+    const yelp = {
+        YelpId: yelpId
+    }
+   axios.post("http://localhost:8080/api/yelp", yelp)
     .then((res)=>{
         console.log("here is our console.log", res.data)
 
