@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom';
 import axios from 'axios'
 import {getCurrentUser} from '../services/auth.service'
@@ -12,6 +12,21 @@ const Cafe = (params) => {
     console.log(yelpId)
     const APIURL="https://localhost:8080/api/cafe/all"
 
+
+
+    const addYelpToMongo = () =>{
+        const Yelp = {
+            YelpId : yelpId
+        }
+        axios.post("http://localhost:8080/api/yelp", Yelp)
+        .then((data)=>{
+            console.log(data.data)
+
+        })
+        .catch((err)=>{
+             console.log(err)
+        })
+    }
     // const addToFavorites = (YelpId) => {
     //     return axios.post(APIURL, {
     //         // id, 
@@ -44,8 +59,13 @@ const Cafe = (params) => {
     //         console.log("you are not logged in!")
     //     }
     // }
+    useEffect(() => {
+        addYelpToMongo()
+      },[])
+    
     return (
-        <div>
+         
+        <div > 
             {cafeData.name}
             <button onClick={handleClick}>Add to Favorites</button>
         </div>
