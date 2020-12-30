@@ -49,15 +49,19 @@ const Cafe = (params) => {
     // }
     useEffect(() => {
         console.log("Yelp: ", {YelpId: yelpId})
-        axios.post("http://localhost:8080/api/yelp", {YelpId: yelpId})
-         .then((res)=>{
-             console.log("here is our console.log", res.data)
-     
-         })
-         .catch((err)=>{
-              console.log(err)
-         })
+        const yelp = {
+            YelpId: yelpId
+        }
+       axios.post("http://localhost:8080/api/yelp", yelp)
+        .then((res)=>{
+            console.log("here is our console.log", res.data)
+    
+        })
+        .catch((err)=>{
+             console.log(err)
+        })
       },[])
+
 
 
 
