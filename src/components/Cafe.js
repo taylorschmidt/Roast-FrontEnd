@@ -14,19 +14,7 @@ const Cafe = (params) => {
 
 
 
-    const addYelpToMongo = () =>{
-        const Yelp = {
-            YelpId : yelpId
-        }
-        axios.post("http://localhost:8080/api/yelp", Yelp)
-        .then((data)=>{
-            console.log(data.data)
-
-        })
-        .catch((err)=>{
-             console.log(err)
-        })
-    }
+    
     // const addToFavorites = (YelpId) => {
     //     return axios.post(APIURL, {
     //         // id, 
@@ -48,7 +36,7 @@ const Cafe = (params) => {
         }
         console.log('YELP OBJ:' , yelp)
         axios.post('http://localhost:8080/api/cafe/all', yelp)
-        .then(res => console.log(res.data))
+        .then(res => console.log("favorites:", res))
         .catch(err => console.log(err))
     }
     // const handleClick = (e) => {
@@ -59,15 +47,29 @@ const Cafe = (params) => {
     //         console.log("you are not logged in!")
     //     }
     // }
-    useEffect(() => {
-        addYelpToMongo()
-      },[])
-    
+    // useEffect(() => {
+          
+    //   },[])
+const addYelpToMongo = () =>{
+
+console.log("Yelp: ", {YelpId: yelpId})
+   axios.post("http://localhost:8080/api/yelp", {YelpId: yelpId})
+    .then((res)=>{
+        console.log("here is our console.log", res.data)
+
+    })
+    .catch((err)=>{
+         console.log(err)
+    })
+}
+
+
     return (
          
         <div > 
             {cafeData.name}
             <button onClick={handleClick}>Add to Favorites</button>
+            <button onClick={addYelpToMongo}>Test</button>
         </div>
 
         
