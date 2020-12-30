@@ -47,21 +47,18 @@ const Cafe = (params) => {
     //         console.log("you are not logged in!")
     //     }
     // }
-    // useEffect(() => {
-          
-    //   },[])
-const addYelpToMongo = () =>{
+    useEffect(() => {
+        console.log("Yelp: ", {YelpId: yelpId})
+        axios.post("http://localhost:8080/api/yelp", {YelpId: yelpId})
+         .then((res)=>{
+             console.log("here is our console.log", res.data)
+     
+         })
+         .catch((err)=>{
+              console.log(err)
+         })
+      },[])
 
-console.log("Yelp: ", {YelpId: yelpId})
-   axios.post("http://localhost:8080/api/yelp", {YelpId: yelpId})
-    .then((res)=>{
-        console.log("here is our console.log", res.data)
-
-    })
-    .catch((err)=>{
-         console.log(err)
-    })
-}
 
 
     return (
@@ -69,7 +66,7 @@ console.log("Yelp: ", {YelpId: yelpId})
         <div > 
             {cafeData.name}
             <button onClick={handleClick}>Add to Favorites</button>
-            <button onClick={addYelpToMongo}>Test</button>
+            
         </div>
 
         
