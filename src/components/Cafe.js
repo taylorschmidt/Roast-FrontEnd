@@ -8,8 +8,8 @@ const Cafe = (params) => {
     const cafeData = params.location.state.data
     const currentUser = getCurrentUser()
     const currentUserId = currentUser.id
-    const [yelpId, setYelpId] = useState(cafeData.id)
-    console.log(yelpId)
+    const [yelpId, setYelpId] = useState(cafeData)
+    console.log("LOOK HERE!", yelpId.id)
     const APIURL="https://localhost:8080/api/cafe/all"
 
 
@@ -32,7 +32,7 @@ const Cafe = (params) => {
         e.preventDefault()
         const yelp = {
             id: currentUserId,
-            YelpId: yelpId
+            YelpId: yelpId.id
         }
         console.log('YELP OBJ:' , yelp)
         axios.post('http://localhost:8080/api/cafe/all', yelp)
@@ -48,9 +48,16 @@ const Cafe = (params) => {
     //     }
     // }
     useEffect(() => {
-        console.log("Yelp: ", {YelpId: yelpId})
+        console.log("Yelp: ", {YelpId: yelpId.id})
         const yelp = {
-            YelpId: yelpId
+            YelpId: yelpId.id,
+            Name: yelpId.name,
+            Address: yelpId.location.address1,
+       City: yelpId.location.city,
+       Rating: yelpId.rating,
+       ImageURL: yelpId.image_url,
+       YelpURL: yelpId.url
+
         }
        axios.post("http://localhost:8080/api/yelp", yelp)
         .then((res)=>{
