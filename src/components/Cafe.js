@@ -49,7 +49,6 @@ const Cafe = (params) => {
   } 
 
   const submitComment = (e) => {
-      //addcomment to backend
       e.preventDefault()
       form.current.validateAll()
       addComment()
@@ -72,10 +71,16 @@ const Cafe = (params) => {
       });
   }
 
-const displayComments = (pageId) => {
-    axios.get("http://localhost:8080/api/comments", {cafeId: pageId})
+const displayComments = () => {
+    
+    const params = {
+        cafeId: yelpId.id
+    }
+    console.log(params)
+    axios
+    .get("http://localhost:8080/api/comments", { params })
     .then((res) => {
-        console.log("here are all the comments:", res.data);
+        console.log("here are all the comments for this cafe:");
       })
       .catch((err) => {
         console.log(err);
@@ -91,7 +96,7 @@ const displayComments = (pageId) => {
 
   useEffect(() => {
     addYelpInfo()
-    displayComments(yelpId.id)
+    displayComments()
   }, []);
   
 
