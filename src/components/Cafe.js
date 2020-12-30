@@ -6,8 +6,7 @@ import {getCurrentUser} from '../services/auth.service'
 const Cafe = (params) => {
     console.log(params.location.state.data)
     const cafeData = params.location.state.data
-    const currentUser = getCurrentUser()
-    const currentUserId = currentUser.id
+
     const [yelpId, setYelpId] = useState(cafeData.id)
     console.log(yelpId)
     const APIURL="https://localhost:8080/api/cafe/all"
@@ -27,8 +26,10 @@ const Cafe = (params) => {
     //         console.log(err)
     //     })
     // }
-    console.log(currentUserId)
+    // console.log(currentUserId)
     const handleClick = (e) => {
+        const currentUser = getCurrentUser()
+        const currentUserId = currentUser.id
         e.preventDefault()
         const yelp = {
             id: currentUserId,
@@ -71,6 +72,7 @@ console.log("Yelp: ", {YelpId: yelpId})
          
         <div > 
             {cafeData.name}
+            {/* //hide button if user isn't logged in */}
             <button onClick={handleClick}>Add to Favorites</button>
             <button onClick={addYelpToMongo}>Test</button>
         </div>
