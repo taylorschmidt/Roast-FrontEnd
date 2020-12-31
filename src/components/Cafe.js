@@ -20,10 +20,10 @@ const Cafe = (params) => {
     e.preventDefault();
     const yelp = {
       id: currentUserId,
-      YelpId: yelpId.id,
+      YelpId: yelpId.id
     };
     axios
-      .post("http://localhost:8080/api/cafe/all", yelp)
+      .put("http://localhost:8080/api/user/favorites", yelp)
       .then((res) => console.log("favorites:", res))
       .catch((err) => console.log(err));
   };
@@ -37,13 +37,11 @@ const Cafe = (params) => {
       City: yelpId.location.city,
       Rating: yelpId.rating,
       ImageURL: yelpId.image_url,
-      YelpURL: yelpId.url,
+      YelpURL: yelpId.url
     };
-    axios
-      .post("http://localhost:8080/api/yelp", yelp)
+    axios.post("http://localhost:8080/api/cafe", yelp)
       .then((res) => {
         console.log("here is our new cafe saved on page load", res.data);
-       
       })
       .catch((err) => {
         console.log(err);

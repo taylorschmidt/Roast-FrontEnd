@@ -22,8 +22,11 @@ const Comments = ({comments, yelpId}) => {
                         <button onClick={()=>{
                                 //  const currentUser = getCurrentUser();
                                 //  const currentUserId = currentUser.id
+                                const deleteComment = {
+                                    id: comment._id
+                                }
                                  axios
-                               .delete("http://localhost:8080/api/comments", {_id: comment._id})
+                               .delete("http://localhost:8080/api/comments", deleteComment)
                                .then((res) => {
                                  console.log("comment was deleted", res.data);
                                })
