@@ -4,13 +4,14 @@ import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
+import Comments from "./Comments"
 
 const Cafe = (params) => {
   const form = useRef()
-  console.log(params.location.state.data);
   const cafeData = params.location.state.data;
   const [yelpId, setYelpId] = useState(cafeData);
   const [content, setContent] = useState('')
+  const [comments, setComments] = useState([])
   
 
   const handleClick = (e) => {
@@ -42,10 +43,12 @@ const Cafe = (params) => {
       .post("http://localhost:8080/api/yelp", yelp)
       .then((res) => {
         console.log("here is our new cafe saved on page load", res.data);
+       
       })
       .catch((err) => {
         console.log(err);
       });
+      displayComments()
   } 
 
   const submitComment = (e) => {
@@ -60,9 +63,9 @@ const Cafe = (params) => {
     const currentUserId = currentUser.id;
     console.log("Here is the input:", currentUserId, content, yelpId.id)
     const newComment = {
-        userId: currentUserId,
         content: content,
-        cafeId: yelpId.id
+        cafeId: yelpId.id,
+        userId: currentUserId
       }
       axios
       .post("http://localhost:8080/api/comments", newComment)
@@ -72,12 +75,18 @@ const Cafe = (params) => {
       .catch((err) => {
         console.log(err);
       });
+      window.location.reload();
   }
 
-const displayComments = (pageId) => {
-    axios.get("http://localhost:8080/api/comments", {cafeId: pageId})
+const displayComments = () => {
+  const display = {
+    cafeId: yelpId.id
+  }
+    axios.get("http://localhost:8080/api/comments", display)
     .then((res) => {
-        console.log("here are all the comments:", res.data);
+        console.log("here are all the comments:", res.data)
+       let allComments = res.data 
+        setComments(allComments)
       })
       .catch((err) => {
         console.log(err);
@@ -93,7 +102,6 @@ const displayComments = (pageId) => {
 
   useEffect(() => {
     addYelpInfo()
-    displayComments(yelpId.id)
   }, []);
   
 
@@ -116,8 +124,7 @@ const displayComments = (pageId) => {
         </Form>
       </div>
       <div>
-        {/* display all current comments */}
-        Comments Will Populate Here
+        <Comments comments={comments} yelpId={yelpId} />
       </div>
     </>
   );
