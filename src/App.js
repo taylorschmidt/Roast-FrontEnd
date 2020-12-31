@@ -10,6 +10,7 @@ import Login from "./components/Login"
 import Signup from "./components/Signup"
 import Profile from "./components/Profile"
 import Cafe from "./components/Cafe"
+import About from "./components/About"
 
 import "./css/App.css";
 
@@ -18,6 +19,7 @@ const App = () => {
     <Layout>
       <Switch>
         <Route exact path={['/', '/home']} component={Home} />
+        <Route exact path="/about" component={About} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Signup} />
         <Route exact path="/profile" component={Profile}/>
