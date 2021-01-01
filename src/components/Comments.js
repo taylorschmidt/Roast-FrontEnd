@@ -1,67 +1,78 @@
-import React from 'react'
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
-import EditComment from './EditComment'
+import { useHistory } from "react-router-dom";
 
-const Comments = ({comments, yelpId}) => {
-   
-   const editComment = () => {
+const Comments = ({ comments, yelpId }) => {
+  const [content, setContent] = useState('')
+  
+  const updateComment = (e) => {
+    let value = e.target.value
+    setContent(value)
+  };
 
-    return(
-        <div>
-        {/* <EditComment /> */}
-        </div>
-        )
-   }
-
+  const display = () => {
     
-
-    const display = () => {
-        console.log("state moved to comments.js", comments)
-        return comments.map((comment, index)=> {
-            return (
-                <div key={index}>
-                        <h6>Review #{index + 1}</h6>
-                        <h5>By: {comment.userId.username}</h5>
-                        <p
-                        //option for editing comment
-                        //needs to call axios edit route and only work if you are logged in.
-                        //maybe set this to false unless you are the comment author
-                        // contentEditable="true"
-                        >{comment.content}</p>
-                        <button onClick={editComment}>Edit</button>
-                        <button onClick={()=>{
-                                //  const currentUser = getCurrentUser();
-                                //  const currentUserId = currentUser.id
-                                // const deleteComment = {
-                                //     id: comment._id
-                                // }
-                                // console.log(deleteComment)
-                                let id = comment._id
-                                console.log(id)
-                                 axios
-                               .delete("http://localhost:8080/api/comments/"+id)
-                               .then((res) => {
-                                 console.log("comment was deleted:", res.data);
-                               })
-                               .catch((err) => {
-                                 console.log(err);
-                               });
-                              
-                            //  window.location.reload();
-                             } 
-                        }
-                        >Delete</button>
-                </div>
-            )     
-    })
-}
- 
-    return (
-        <div>
-        <div className="row">{display()}</div>
+    return comments.map((comment, index) => {
+      return (
+        <div key={index}>
+          <form>
+            <label>By: {comment.userId.username}</label>
+            <input
+              type="text"
+              className="form-control"
+              name="comment"
+              value={comment.content}
+              onChange={updateComment}
+            />
+          </form>
+          <button
+            onClick={() => {
+              let id = comment._id;
+              let content = content;
+              axios
+                .put("http://localhost:8080/api/comments/" + id, {
+                  content: content,
+                })
+                .then((res) => {
+                  console.log("comment was updated", res.data);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+              //   window.location.reload()
+            }}
+          >
+            Update
+          </button>
+          <button
+            onClick={() => {
+              //conditional about current user
+              let id = comment._id;
+              console.log(id);
+              axios
+                .delete("http://localhost:8080/api/comments/" + id)
+                .then((res) => {
+                  console.log("comment was deleted:", res.data);
+                })
+                .catch((err) => {
+                  console.log(err);
+                });
+              window.location.reload();
+            }}
+          >
+            Delete
+          </button>
         </div>
-    )
-}
+      );
+    });
+  };
 
-export default Comments
+  return (
+    <div>
+      <div className="row">{display()}</div>
+    </div>
+  );
+};
+
+export default Comments;
