@@ -25,7 +25,7 @@ const About = () => {
                     <img></img>
                     <div className="card-body">
                         <h3 className="card-title">Julianna Fernandes</h3>
-                        <p className="card-text">Juliana</p>
+                        <p className="card-text">Juliana is currently taking a gap year before entering college and wanted to learn more about coding and becoming a software engineer. She enjoys drinking tea as a way to relax!</p>
                     </div>
                 </div>
             </div>
