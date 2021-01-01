@@ -16,23 +16,27 @@ const Cafe = (params) => {
 //favorite route
   const handleClick = (e) => {
     const currentUser = getCurrentUser();
-    const currentUserId = currentUser.id;
-    // if(!currentUserId) {
-    //   return (
-    //     <div>You must be logged in to view this page.</div>
-    //   )
-    // }
+    // const currentUserId = currentUser.id;
     e.preventDefault();
+
     //add error message to tell user to log in to add favorites
+    if(!currentUser.id) {
+      return (
+        <div>You must be logged in to add favorites.</div>
+      )
+    } else {
+    
+    
     const yelp = {
-      id: currentUserId,
+      id: currentUser.id,
       YelpId: yelpId.id
     };
     axios
       .put("http://localhost:8080/api/user/favorites", yelp)
       .then((res) => console.log("favorites:", res))
       .catch((err) => console.log(err));
-  };
+    }
+    };
 
   const addYelpInfo = () => {
     console.log("Yelp: ", { YelpId: yelpId.id });
