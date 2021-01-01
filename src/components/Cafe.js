@@ -118,7 +118,10 @@ const displayComments = () => {
   return (
     <>
       <h1>{yelpId.name}</h1>
-      <h3>{yelpId.location.address1}</h3>
+      {/* <h3>Address: {yelpId.location.address1}, {yelpId.location.city}</h3> */}
+      <h3>Address: {yelpId.location.display_address}</h3>
+      <h4>Phone Number: {yelpId.phone}</h4>
+      <h5>Rating: {yelpId.rating}/5</h5>
       <img src={yelpId.image_url} /> 
       {/* add yelp rating, yelp logo */}
       <button onClick={handleClick}>Add to Favorites!</button>
