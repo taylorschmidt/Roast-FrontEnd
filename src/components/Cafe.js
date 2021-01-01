@@ -119,7 +119,8 @@ const displayComments = () => {
     <>
       <h1>{yelpId.name}</h1>
       <h3>{yelpId.location.address1}</h3>
-      <img src={yelpId.image_url} />
+      <img src={yelpId.image_url} /> 
+      {/* add yelp rating, yelp logo */}
       <button onClick={handleClick}>Add to Favorites!</button>
       <div>
         <Form onSubmit={submitComment} ref={form}>
