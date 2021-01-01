@@ -6,7 +6,7 @@ import EditComment from './EditComment'
 const Comments = ({comments, yelpId}) => {
    
    const editComment = () => {
-       
+
    }
 
     
@@ -18,17 +18,23 @@ const Comments = ({comments, yelpId}) => {
                 <div key={index}>
                         <h6>Review #{index + 1}</h6>
                         <h5>By: {comment.userId.username}</h5>
-                        <p>{comment.content}</p>
+                        <p
+                        //option for editing comment
+                        //needs to call axios edit route and only work if you are logged in.
+                        // contentEditable="true"
+                        >{comment.content}</p>
                         <button onClick={editComment}>Edit</button>
                         <button onClick={()=>{
                                 //  const currentUser = getCurrentUser();
                                 //  const currentUserId = currentUser.id
-                                const deleteComment = {
-                                    id: comment._id
-                                }
-                                console.log(deleteComment)
+                                // const deleteComment = {
+                                //     id: comment._id
+                                // }
+                                // console.log(deleteComment)
+                                let id = comment._id
+                                console.log(id)
                                  axios
-                               .delete("http://localhost:8080/api/comments", deleteComment)
+                               .delete("http://localhost:8080/api/comments/"+id)
                                .then((res) => {
                                  console.log("comment was deleted:", res.data);
                                })
