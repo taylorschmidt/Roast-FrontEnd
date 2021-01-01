@@ -7,6 +7,11 @@ const Comments = ({comments, yelpId}) => {
    
    const editComment = () => {
 
+    return(
+        <div>
+        {/* <EditComment /> */}
+        </div>
+        )
    }
 
     
@@ -21,6 +26,7 @@ const Comments = ({comments, yelpId}) => {
                         <p
                         //option for editing comment
                         //needs to call axios edit route and only work if you are logged in.
+                        //maybe set this to false unless you are the comment author
                         // contentEditable="true"
                         >{comment.content}</p>
                         <button onClick={editComment}>Edit</button>
