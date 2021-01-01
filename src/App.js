@@ -11,6 +11,7 @@ import Signup from "./components/Signup"
 import Profile from "./components/Profile"
 import Cafe from "./components/Cafe"
 import About from "./components/About"
+import Favorites from "./components/Favorites"
 
 import "./css/App.css";
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route exact path="/register" component={Signup} />
         <Route exact path="/profile" component={Profile}/>
         <Route path='/cafe' component={Cafe} />
+        <Route path='/favorites' component={Favorites}/>
       </Switch>
     </Layout>
   )
