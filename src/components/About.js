@@ -18,7 +18,7 @@ const About = () => {
                     <img src="https://i.ibb.co/NtFgbFY/FB-IMG-1608238633178.jpg" alt="FB-IMG-1608238633178" border="0" />
                     <div className="card-body">
                         <h3 className="card-title">Elizabeth Chandra</h3>
-                        <p className="card-text">Elizabeth comes from a background of health science and working as a medical scribe. She decided that it was time for a career change and knew that she always had an interest in coding, hence the switch to becoming a software engineer.</p>
+                        <p className="card-text">Elizabeth comes from a background of health science and working as a medical scribe. She decided that it was time for a career change and knew that she always had an interest in coding, hence the switch to becoming a software engineer. She drinks tea and coffee as beverage of choice!</p>
                     </div>
                 </div>
                 <div className="card">
