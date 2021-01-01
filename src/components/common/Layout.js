@@ -35,7 +35,7 @@ const Layout = (props) => {
               About
             </Link>
           </li>
-          {showAdminBoard && (
+          {/* {showAdminBoard && (
             <li className="nav-item">
               <Link to={"/admin"} className="nav-link">
                 Admin Board
@@ -47,8 +47,8 @@ const Layout = (props) => {
               <Link to={"/user"} className="nav-link">
                 User
               </Link>
-            </li>
-          )}
+            </li> */}
+          {/* )} */}
         </div>
         {currentUser ? (
           <div className="navbar-nav ml-auto">

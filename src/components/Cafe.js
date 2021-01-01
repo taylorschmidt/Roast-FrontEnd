@@ -13,21 +13,30 @@ const Cafe = (params) => {
   const [content, setContent] = useState('')
   const [comments, setComments] = useState([])
   
-
+//favorite route
   const handleClick = (e) => {
     const currentUser = getCurrentUser();
-    const currentUserId = currentUser.id;
+    // const currentUserId = currentUser.id;
     e.preventDefault();
+
     //add error message to tell user to log in to add favorites
+    if(!currentUser.id) {
+      return (
+        <div>You must be logged in to add favorites.</div>
+      )
+    } else {
+    
+    
     const yelp = {
-      id: currentUserId,
+      id: currentUser.id,
       YelpId: yelpId.id
     };
     axios
       .put("http://localhost:8080/api/user/favorites", yelp)
       .then((res) => console.log("favorites:", res))
       .catch((err) => console.log(err));
-  };
+    }
+    };
 
   const addYelpInfo = () => {
     console.log("Yelp: ", { YelpId: yelpId.id });
@@ -79,10 +88,11 @@ const Cafe = (params) => {
   }
 
 const displayComments = () => {
-  const display = {
-    cafeId: yelpId.id
-  }
-    axios.get("http://localhost:8080/api/comments", display)
+  // const display = {
+  //   cafeId: yelpId.id
+  // }
+  let id= yelpId.id
+    axios.get("http://localhost:8080/api/comments/" + id)
     .then((res) => {
         console.log("here are all the comments:", res.data)
        let allComments = res.data 
