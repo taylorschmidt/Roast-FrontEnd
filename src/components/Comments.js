@@ -1,14 +1,15 @@
 import React from 'react'
 import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
+import EditComment from './EditComment'
 
 const Comments = ({comments, yelpId}) => {
    
+   const editComment = () => {
+       
+   }
 
-    const editComment = () =>
-    {
-
-    }
+    
 
     const display = () => {
         console.log("state moved to comments.js", comments)
@@ -25,10 +26,11 @@ const Comments = ({comments, yelpId}) => {
                                 const deleteComment = {
                                     id: comment._id
                                 }
+                                console.log(deleteComment)
                                  axios
                                .delete("http://localhost:8080/api/comments", deleteComment)
                                .then((res) => {
-                                 console.log("comment was deleted", res.data);
+                                 console.log("comment was deleted:", res.data);
                                })
                                .catch((err) => {
                                  console.log(err);
