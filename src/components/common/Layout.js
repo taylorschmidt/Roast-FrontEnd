@@ -30,6 +30,11 @@ const Layout = (props) => {
               Home
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to={"/about"} className="nav-link">
+              About
+            </Link>
+          </li>
           {showAdminBoard && (
             <li className="nav-item">
               <Link to={"/admin"} className="nav-link">
