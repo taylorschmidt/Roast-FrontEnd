@@ -18,6 +18,7 @@ const Cafe = (params) => {
     const currentUser = getCurrentUser();
     const currentUserId = currentUser.id;
     e.preventDefault();
+    //add error message to tell user to log in to add favorites
     const yelp = {
       id: currentUserId,
       YelpId: yelpId.id
@@ -59,6 +60,7 @@ const Cafe = (params) => {
   const addComment = () => {
     const currentUser = getCurrentUser();
     const currentUserId = currentUser.id;
+    //add error message to tell user to log in to add comment
     console.log("Here is the input:", currentUserId, content, yelpId.id)
     const newComment = {
         content: content,
