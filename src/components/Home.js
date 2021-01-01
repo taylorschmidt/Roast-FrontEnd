@@ -62,7 +62,7 @@ const Home = () => {
 
 return(
     <>
-        HomePage
+        Welcome to Roast's Page!
         <Form onSubmit={handleSearch} ref={form}>
                         <Input 
                             type='text'
