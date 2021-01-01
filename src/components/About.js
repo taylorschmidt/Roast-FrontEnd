@@ -11,7 +11,7 @@ const About = () => {
                     <img src="https://i.ibb.co/9gZSnJQ/P8143678.jpg" alt="P8143678" border="0" />
                     <div className="card-body">
                         <h3 className="card-title">Taylor Schmidt</h3>
-                        <p className="card-text">Taylor</p>
+                        <p className="card-text">Taylor has worked as a high school STEM educator for the last seven years and is excited to make the move to software engineering. She enjoys hiking, skiing, and of course... coffee!</p>
                     </div>
                 </div>
                 <div className="card">
