@@ -15,7 +15,7 @@ const Cafe = (params) => {
     const [error, setError] = useState(false)
 
 //error message in state
-    const message = "You must be logged in to add to favorites."
+    const message = "You must be logged in to add favorites or reviews."
   
 //favorite route
     const handleClick = (e) => {
