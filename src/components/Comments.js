@@ -3,19 +3,27 @@ import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
 
 const Comments = ({ comments, yelpId }) => {
-  const [content, setContent] = useState('')
+
+  //set state to be content of comment
+  let mappedComments = comments.map((comment)=> {return (comment.content)})
+  let [content, setContent] = useState(mappedComments)
+
+  //get id of each mapped comment in state and grab that index to update it in the form
+
   // const [content, setContent] = useState(comments)
-  
+  const [test, setTest] = useState('test')
+  // let value = ''
   const updateComment = (e) => {
-    let value = e.target.value
-    console.log("VALUE", value)
-    setContent(value)
+    content += e.target.value
+    // console.log("VALUE", value)
+    setContent(content)
   };
  
 
   const display = () => {
     
-    return comments.map((comment, index, e) => {
+    return comments.map((comment, index) => {
+      
       return (
         <div key={index}>
           <form>
@@ -35,11 +43,9 @@ const Comments = ({ comments, yelpId }) => {
               let id = comment._id;
               axios
                 .put("http://localhost:8080/api/comments/" + id, {
-                  
                   content: content
                 })
                 .then((res) => {
-                  
                   console.log("comment was updated", res.data);
                 })
                 .catch((err) => {
