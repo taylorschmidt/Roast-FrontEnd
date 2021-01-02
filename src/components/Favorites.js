@@ -68,14 +68,15 @@ const Favorites = (props) => {
 
     return(
         <div className='container'> 
-          <button onClick={switchBetweenPages}>Info</button>
+          {/* <button onClick={switchBetweenPages}>Info</button>
           <button>Favorites</button>
             <header className="jumbotron">
                 <h3>
                     <strong>{currentUser.username}</strong>
                 </h3>
                 
-            </header>
+            </header> */}
+            <h4>My Favorite Cafes:</h4>
             <div className="row">{display()}</div>
             {/* <button onClick={displayFavorites}>Test</button> */}
             {/* <button onClick={deleteFavorite}>Delete Favorite</button> */}

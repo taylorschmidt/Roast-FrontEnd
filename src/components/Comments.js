@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
-import { useHistory } from "react-router-dom";
 
 const Comments = ({ comments, yelpId }) => {
   const [content, setContent] = useState('')
@@ -22,6 +21,8 @@ const Comments = ({ comments, yelpId }) => {
               type="text"
               className="form-control"
               name="comment"
+              // value={content}
+              // placeholder={comment.content}
               value={comment.content}
               onChange={updateComment}
             />
@@ -30,7 +31,6 @@ const Comments = ({ comments, yelpId }) => {
           <button
             onClick={() => {
               let id = comment._id;
-              // let content = content;
               axios
                 .put("http://localhost:8080/api/comments/" + id, {
                   content: content,

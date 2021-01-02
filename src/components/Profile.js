@@ -1,6 +1,7 @@
 import React from 'react'
 import { useHistory } from "react-router-dom"
 import {getCurrentUser} from '../services/auth.service'
+import Favorites from './Favorites'
 
 
 const Profile = () => {
@@ -24,22 +25,24 @@ const Profile = () => {
                 <h3>
                     <strong>{currentUser.username}</strong>
                 </h3>
+                <h6>{currentUser.email}</h6>
+                {/* <h6>{currentUser.id}</h6> */}
             </header>
-            <p>
+            {/* <p>
                 <strong>Token:</strong>{currentUser.accessToken.substring(0, 20)}...{" "}
+            </p> */}
+            {/* <p>
+                <strong>My User Id:</strong> {currentUser.id}
             </p>
             <p>
-                <strong>Id:</strong> {currentUser.id}
-            </p>
-            <p>
-                <strong>Email:</strong> {currentUser.email}
-            </p>
+                <strong>My Email:</strong> {currentUser.email}
+            </p> */}
             {/* if current user has roles, map through and display them */}
-            {currentUser.roles &&
-            currentUser.roles.map((role, index)=> <li key={index}>{role}</li>)}
+            {/* {currentUser.roles &&
+            currentUser.roles.map((role, index)=> <li key={index}>{role}</li>)} */}
             {/* {favorites.map((favorite, index)=> <li key={index}>{favorite}</li>)} */}
             
-           
+           <Favorites />
         </div>
     )
 }
