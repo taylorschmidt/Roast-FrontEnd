@@ -12,12 +12,10 @@ const Cafe = (params) => {
     const [yelpId, setYelpId] = useState(cafeData);
     const [content, setContent] = useState('')
     const [comments, setComments] = useState([])
-    const [error, setError] = useState()
+    const [error, setError] = useState(false)
 
 //error message in state
-    const message = () => {
-
-    }
+    const message = "You must be logged in to add to favorites."
   
 //favorite route
     const handleClick = (e) => {
@@ -26,7 +24,7 @@ const Cafe = (params) => {
 
         //add error message to tell user to log in to add favorites
         if(!currentUser) {
-            console.error('error here');
+            setError(true)
             return (
                 <div></div>
             )
@@ -118,7 +116,8 @@ const Cafe = (params) => {
 
     return (
         <>
-        {/* //show error message */}
+        
+       
         <h1>{yelpId.name}</h1>
         {/* <h3>Address: {yelpId.location.address1}, {yelpId.location.city}</h3> */}
         <h3>Address: {yelpId.location.display_address}</h3>
@@ -127,6 +126,7 @@ const Cafe = (params) => {
         <img src={yelpId.image_url} /> 
         {/* add yelp rating, yelp logo */}
         <button onClick={handleClick}>Add to Favorites!</button>
+        {error && <div>{message}</div>}
         <div>
             <Form onSubmit={submitComment} ref={form}>
             <Input
