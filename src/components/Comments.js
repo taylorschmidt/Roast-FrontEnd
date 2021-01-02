@@ -4,15 +4,18 @@ import { getCurrentUser } from "../services/auth.service";
 
 const Comments = ({ comments, yelpId }) => {
   const [content, setContent] = useState('')
+  // const [content, setContent] = useState(comments)
   
   const updateComment = (e) => {
     let value = e.target.value
+    console.log("VALUE", value)
     setContent(value)
   };
+ 
 
   const display = () => {
     
-    return comments.map((comment, index) => {
+    return comments.map((comment, index, e) => {
       return (
         <div key={index}>
           <form>
@@ -21,8 +24,6 @@ const Comments = ({ comments, yelpId }) => {
               type="text"
               className="form-control"
               name="comment"
-              // value={content}
-              // placeholder={comment.content}
               value={comment.content}
               onChange={updateComment}
             />
@@ -30,18 +31,21 @@ const Comments = ({ comments, yelpId }) => {
           {/* EDIT FUNCTION */}
           <button
             onClick={() => {
+              console.log('STATE', content)
               let id = comment._id;
               axios
                 .put("http://localhost:8080/api/comments/" + id, {
-                  content: content,
+                  
+                  content: content
                 })
                 .then((res) => {
+                  
                   console.log("comment was updated", res.data);
                 })
                 .catch((err) => {
                   console.log(err);
                 });
-              //   window.location.reload()
+              window.location.reload()
             }}
           >
             Update
