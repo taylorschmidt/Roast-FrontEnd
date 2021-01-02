@@ -15,7 +15,9 @@ const Cafe = (params) => {
     const [error, setError] = useState()
 
 //error message in state
-    const message = () => {}
+    const message = () => {
+
+    }
   
 //favorite route
     const handleClick = (e) => {
@@ -26,7 +28,7 @@ const Cafe = (params) => {
         if(!currentUser) {
             console.error('error here');
             return (
-                <div>You must be logged in to add favorites.</div>
+                <div></div>
             )
             } else {
                 const yelp = {
@@ -42,13 +44,13 @@ const Cafe = (params) => {
     const addYelpInfo = () => {
         console.log("Yelp: ", { YelpId: yelpId.id });
         const yelp = {
-        YelpId: yelpId.id,
-        Name: yelpId.name,
-        Address: yelpId.location.address1,
-        City: yelpId.location.city,
-        Rating: yelpId.rating,
-        ImageURL: yelpId.image_url,
-        YelpURL: yelpId.url
+            YelpId: yelpId.id,
+            Name: yelpId.name,
+            Address: yelpId.location.address1,
+            City: yelpId.location.city,
+            Rating: yelpId.rating,
+            ImageURL: yelpId.image_url,
+            YelpURL: yelpId.url
         };
         axios.post("http://localhost:8080/api/cafe", yelp)
         .then((res) => {
@@ -96,7 +98,7 @@ const Cafe = (params) => {
         axios.get("http://localhost:8080/api/comments/" + id)
         .then((res) => {
             console.log("here are all the comments:", res.data)
-        let allComments = res.data 
+            let allComments = res.data 
             setComments(allComments)
         })
         .catch((err) => {
