@@ -61,10 +61,19 @@ const Cafe = (params) => {
     } 
 
     const submitComment = (e) => {
+      e.preventDefault();
+      const currentUser = getCurrentUser();
+
+      //add error message to tell user to log in to add favorites
+      if(!currentUser) {
+          setError(true)
+          
+          } else {
         //addcomment to backend
         e.preventDefault()
         form.current.validateAll()
         addComment()
+          }
     }
 
     const addComment = () => {
