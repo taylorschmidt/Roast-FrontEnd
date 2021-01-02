@@ -25,9 +25,6 @@ const Cafe = (params) => {
         //add error message to tell user to log in to add favorites
         if(!currentUser) {
             setError(true)
-            return (
-                <div></div>
-            )
             } else {
                 const yelp = {
                     id: currentUser.id,
@@ -116,8 +113,6 @@ const Cafe = (params) => {
 
     return (
         <>
-        
-       
         <h1>{yelpId.name}</h1>
         {/* <h3>Address: {yelpId.location.address1}, {yelpId.location.city}</h3> */}
         <h3>Address: {yelpId.location.display_address}</h3>
