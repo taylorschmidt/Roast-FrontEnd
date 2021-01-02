@@ -26,10 +26,11 @@ const Comments = ({ comments, yelpId }) => {
               onChange={updateComment}
             />
           </form>
+          {/* EDIT FUNCTION */}
           <button
             onClick={() => {
               let id = comment._id;
-              let content = content;
+              // let content = content;
               axios
                 .put("http://localhost:8080/api/comments/" + id, {
                   content: content,
@@ -45,6 +46,7 @@ const Comments = ({ comments, yelpId }) => {
           >
             Update
           </button>
+          {/* DELETE FUNCTION */}
           <button
             onClick={() => {
               //conditional about current user
