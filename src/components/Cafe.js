@@ -15,7 +15,7 @@ const Cafe = (params) => {
     const [error, setError] = useState(false)
 
 //error message in state
-    const message = "You must be logged in to add to favorites."
+    const message = "You must be logged in to add favorites or reviews."
   
 //favorite route
     const handleClick = (e) => {
@@ -58,10 +58,19 @@ const Cafe = (params) => {
     } 
 
     const submitComment = (e) => {
+      e.preventDefault();
+      const currentUser = getCurrentUser();
+
+      //add error message to tell user to log in to add favorites
+      if(!currentUser) {
+          setError(true)
+          
+          } else {
         //addcomment to backend
         e.preventDefault()
         form.current.validateAll()
         addComment()
+          }
     }
 
     const addComment = () => {
