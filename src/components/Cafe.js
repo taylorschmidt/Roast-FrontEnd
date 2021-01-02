@@ -12,19 +12,23 @@ const Cafe = (params) => {
   const [yelpId, setYelpId] = useState(cafeData);
   const [content, setContent] = useState('')
   const [comments, setComments] = useState([])
+//   const currentUser = getCurrentUser();
+//   const currentUserId = currentUser.id;
   
 //favorite route
-  const handleClick = (e) => {
+  const handleClick = (e, res) => {
     const currentUser = getCurrentUser();
-    // const currentUserId = currentUser.id;
+    const currentUserId = currentUser.id;
     e.preventDefault();
 
     //add error message to tell user to log in to add favorites
     if(!currentUser.id) {
-      return (
-        <div>You must be logged in to add favorites.</div>
-      )
-    } else {
+        console.error('error here');
+        res.status(401).send('error message you want here')
+        return (
+            <div>You must be logged in to add favorites.</div>
+        )
+        } else {
     
     
     const yelp = {
