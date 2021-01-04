@@ -5,14 +5,13 @@ import { getCurrentUser } from "../services/auth.service";
 const Comments = ({ comments, yelpId }) => {
 
   //set state to be content of comment
-  let mappedComments = comments.map((comment)=> {return (comment.content)})
-  let [content, setContent] = useState(mappedComments)
-
+  let mappedComments = comments.map((comment)=> {return ([comment])})
+  console.log(mappedComments)
+  const [content, setContent] = useState(mappedComments)
+  console.log('STATE', content)
   //get id of each mapped comment in state and grab that index to update it in the form
 
-  // const [content, setContent] = useState(comments)
-  const [test, setTest] = useState('test')
-  // let value = ''
+
   const updateComment = (e) => {
     content += e.target.value
     // console.log("VALUE", value)
@@ -20,13 +19,20 @@ const Comments = ({ comments, yelpId }) => {
   };
  
 
+
+
   const display = () => {
+    
+
+    const currentUser = getCurrentUser();
     
     return comments.map((comment, index) => {
       
       return (
         <div key={index}>
+          <div className="row">
           <form>
+          
             <label>By: {comment.userId.username}</label>
             <input
               type="text"
@@ -36,10 +42,14 @@ const Comments = ({ comments, yelpId }) => {
               onChange={updateComment}
             />
           </form>
+       
+  
           {/* EDIT FUNCTION */}
-          <button
+          <button className="btn btn-dark" 
             onClick={() => {
-              console.log('STATE', content)
+              if(!currentUser){
+              } else if (currentUser && currentUser.id === comment.userId._id) {
+              console.log('it worked! only user should see this.')
               let id = comment._id;
               axios
                 .put("http://localhost:8080/api/comments/" + id, {
@@ -53,13 +63,16 @@ const Comments = ({ comments, yelpId }) => {
                 });
               window.location.reload()
             }}
+          }
           >
             Update
           </button>
           {/* DELETE FUNCTION */}
-          <button
+          <button className="btn btn-dark"
             onClick={() => {
-              //conditional about current user
+              if(!currentUser){
+                return
+              } else if (currentUser && currentUser.id === comment.userId._id) {
               let id = comment._id;
               console.log(id);
               axios
@@ -72,9 +85,11 @@ const Comments = ({ comments, yelpId }) => {
                 });
               window.location.reload();
             }}
+          }
           >
             Delete
           </button>
+        </div>
         </div>
       );
     });
