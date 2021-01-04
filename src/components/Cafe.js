@@ -126,7 +126,7 @@ const Cafe = (params) => {
     
       <div className="container">
         <div className="row">
-          <div className="col-md-8">
+          <div className="col-sm-8">
             
             <h1>{yelpId.name}</h1>
             {/* <h3>Address: {yelpId.location.address1}, {yelpId.location.city}</h3> */}
@@ -136,17 +136,20 @@ const Cafe = (params) => {
               Rating: {yelpId.rating}/5{" "}
               <img src="https://m.yelp.nl/favicon.ico" />
             </h5>
+            <div>
             <img src={yelpId.image_url} height='80%' width='100%'/>
+            </div>
             {/* add yelp rating, yelp logo */}
             <button onClick={handleClick}>Add to Favorites!</button>
             {error && <div>{message}</div>}
           </div>
-          <div className="col-md-4">
+          {/* <div className="col-md-1"></div> */}
+          <div className="col-sm-4">
             
-            <div>
+          
               
               <h5>Add a Review for {yelpId.name}:</h5>
-              <Form onSubmit={submitComment} ref={form} className="form-group row">
+              <Form onSubmit={submitComment} ref={form} >
                 
                 <Input 
                   type="text"
@@ -158,13 +161,14 @@ const Cafe = (params) => {
                 />
                 
               </Form>
-            </div>
-            <div>
+           
+            
               <Comments comments={comments} yelpId={yelpId} />
-            </div>
+            
           </div>
         </div>
       </div>
+  
     
   );
 };

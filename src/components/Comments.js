@@ -29,22 +29,26 @@ const Comments = ({ comments, yelpId }) => {
     return comments.map((comment, index) => {
       
       return (
-        <div key={index}>
-          <div className="row">
+        <div className="row"key={index}>
+         
           <form>
           
             <label>By: {comment.userId.username}</label>
-            <input
+            <br></br>
+            <input 
               type="text"
-              className="form-control"
+              // className="form-control"
               name="comment"
               value={comment.content}
               onChange={updateComment}
-            />
+              />
+
+           
           </form>
        
   
           {/* EDIT FUNCTION */}
+          <div>
           <button className="btn btn-dark" 
             onClick={() => {
               if(!currentUser){
@@ -96,7 +100,7 @@ const Comments = ({ comments, yelpId }) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <div className="row">{display()}</div>
     </div>
   );
