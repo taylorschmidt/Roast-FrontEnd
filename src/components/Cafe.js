@@ -6,6 +6,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import Comments from "./Comments";
 import "../css/App.css";
+import ButtonSpinner from './common/ButtonSpinner'
 
 const Cafe = (params) => {
   const form = useRef();
@@ -14,6 +15,7 @@ const Cafe = (params) => {
   const [content, setContent] = useState("");
   const [comments, setComments] = useState([]);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   //error message in state
   const message = "You must be logged in to add favorites or reviews.";
@@ -21,6 +23,10 @@ const Cafe = (params) => {
   //favorite route
   const handleClick = (e) => {
     e.preventDefault();
+    setLoading(true)
+    form.current.validateAll()
+       
+    
     const currentUser = getCurrentUser();
 
     //add error message to tell user to log in to add favorites
@@ -58,6 +64,7 @@ const Cafe = (params) => {
         console.log(err);
       });
     displayComments();
+    setLoading(false)
   };
 
   const submitComment = (e) => {
@@ -137,7 +144,7 @@ const Cafe = (params) => {
               <img src="https://m.yelp.nl/favicon.ico" />
             </h5>
             <div>
-            <img src={yelpId.image_url} height='80%' width='100%'/>
+            <img src={yelpId.image_url} height='500vh' width='500vw'/>
             </div>
             {/* add yelp rating, yelp logo */}
             <button onClick={handleClick}>Add to Favorites!</button>
@@ -159,6 +166,7 @@ const Cafe = (params) => {
                   value={content}
                   onChange={onChangeContent}
                 />
+                <ButtonSpinner text="Submit" loading={loading} />
                 
               </Form>
            

@@ -63,8 +63,7 @@ const Home = () => {
     }
 
 return(
-    <>
-        Welcome to Roast's Page!
+    <div className="container">
         <Form onSubmit={handleSearch} ref={form}>
                         <Input 
                             type='text'
@@ -77,13 +76,9 @@ return(
                     <ButtonSpinner text="Search" loading={loading} />
         </Form>
         <Result yelpData={yelpData}/>
+        </div>
 
-        {/* example from To-Do List
-        {todos.map(todo => (
-       //mapping through the array of todos in the state
-       <Todo key={todo.id} text={todo.text} compete={todo.compete} toggleComplete={()=> toggleComplete(todo.id)} deleteTodo={() => deleteTodo(todo.id)}/> */}
-     {/* ))} */}
-    </>
+    
 )
 
 }
