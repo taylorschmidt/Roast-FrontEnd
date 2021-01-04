@@ -30,3 +30,9 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.commentButton {
+  height: 50%;
+  width: 30%
+}
+
