@@ -8,6 +8,7 @@ const About = () => {
         return (
             <div className="col s12 m6">
                 <div className="card">
+                {/* <div className="card.person"> */}
                     <img src="https://i.ibb.co/9gZSnJQ/P8143678.jpg" alt="P8143678" border="0" />
                     <div className="card-body">
                         <h3 className="card-title">Taylor Schmidt</h3>
@@ -15,6 +16,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="card">
+                {/* <div className="card.person"> */}
                     <img src="https://i.ibb.co/NtFgbFY/FB-IMG-1608238633178.jpg" alt="FB-IMG-1608238633178" border="0" />
                     <div className="card-body">
                         <h3 className="card-title">Elizabeth Chandra</h3>
@@ -22,10 +24,15 @@ const About = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img></img>
+                {/* <div className="card.person"> */}
+                    <img 
+                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        alt="profile-img"
+                        className="profile-img-card"
+                    />
                     <div className="card-body">
                         <h3 className="card-title">Julianna Fernandes</h3>
-                        <p className="card-text">Juliana</p>
+                        <p className="card-text">Juliana is currently taking a gap year before entering college and wanted to learn more about coding and becoming a software engineer. She enjoys drinking tea as a way to relax!</p>
                     </div>
                 </div>
             </div>
