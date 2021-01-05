@@ -3,14 +3,14 @@ import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
 
 const Comments = ({ comments, yelpId }) => {
-  console.log("here are the passed comments", comments);
-  //set state to be content of comment
-  let mappedComments = comments.map((comment) => {
-    return [comment];
-  });
-  console.log(mappedComments);
-  let [content, setContent] = useState(mappedComments);
-  console.log("STATE", content);
+  // console.log("here are the passed comments", comments);
+  // //set state to be content of comment
+  // let mappedComments = comments.map((comment) => {
+  //   return [comment];
+  // });
+  // console.log(mappedComments);
+  // let [content, setContent] = useState(mappedComments);
+  // console.log("STATE", content);
  
 
   let newValue;
@@ -26,25 +26,29 @@ const Comments = ({ comments, yelpId }) => {
     return comments.map((comment, index) => {
       return (
         <div className="row" key={index}>
-          <div>
+          
           {!currentUser && (
-            <div>
-              <h6>By: {comment.userId.username}</h6>
-              <p>{comment.content}</p>
-              <br></br>
+            <>
+              <div className="col-sm-4"className="trialOne">
+            {comment.userId.username}:
             </div>
+            <div className="col-sm-8" className="trial">
+            {comment.content}
+            </div>
+           </>
           )}
-          </div>
-          <div>
+          
+          
           {currentUser && currentUser.id != comment.userId._id && (
-            <div>
-              <h6>By: {comment.userId.username}</h6>
-              <p>{comment.content}</p>
-              <br></br>
-            </div>
+           <div className="row">
+           <h6>By: {comment.userId.username}</h6>
+           
+           <p>{comment.content}</p>
+           
+         </div>
           )}
-          </div>
-          <div>
+          
+          
           {currentUser && currentUser.id === comment.userId._id && (
             <form>
               <label>By: {comment.userId.username}</label>
@@ -58,7 +62,7 @@ const Comments = ({ comments, yelpId }) => {
               />
             </form>
           )}
-          </div>
+          
 
           {/* EDIT FUNCTION */}
           <div>

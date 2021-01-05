@@ -35,3 +35,12 @@ label {
   height: 50%;
   width: 30%
 }
+
+.trial {
+  overflow-wrap:break-word;
+}
+
+.trialOne {
+  overflow-wrap:break-word;
+  font-weight: bold;
+}

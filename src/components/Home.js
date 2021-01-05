@@ -26,8 +26,8 @@ const Home = () => {
     const yelp = () => {
         let API_KEY='xNLbwe9rAHISyqVVqaMKfvBUgQBx8PmcB-cxt2n8XsauOJOzY5HFJowooEucmrMpWerZfBlAJ9bzOEbzDDGeyAYpW7f6E1Xk1NLe6JxjzaS_Vo6L86gUkT4PN6vwX3Yx'
         // let API_KEY = "opj0qRGSY4uyO7tbxbzc6OICo0yziXXjc-p1vwBmnqLU5WM9KesSE1t0s8Hgo5x4dCcJDYWEvDeRx7HpK8mG-RKp6G6x5eh0dcDYD8vgs7MWnu_W20lpvaZMICTVX3Yx"
-        axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search`, {
-        // axios.get('https://api.yelp.com/v3/businesses/search', {
+        axios.get(`${'https://sleepy-stream-23951.herokuapp.com/'}https://api.yelp.com/v3/businesses/search`, {
+        // axios.get('https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search', {
             headers: {
                 Authorization: `Bearer ${API_KEY}`
             },
