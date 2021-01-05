@@ -22,7 +22,11 @@ const About = () => {
                     </div>
                 </div>
                 <div className="card">
-                    <img></img>
+                    <img 
+                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        alt="profile-img"
+                        className="profile-img-card"
+                    />
                     <div className="card-body">
                         <h3 className="card-title">Julianna Fernandes</h3>
                         <p className="card-text">Juliana is currently taking a gap year before entering college and wanted to learn more about coding and becoming a software engineer. She enjoys drinking tea as a way to relax!</p>
