@@ -9,6 +9,7 @@ const Result = ({yelpData}) => {
             return (
                 <div key={index} className = "col s12 m6">
                     <div className="card">
+                    {/* <div className="card.shop"> */}
                         <img className="card-img-top" src={data.image_url} alt="cafe picture"/>
                     <div className="card-body">
                         <h5 className="card-title">{data.name}</h5>
