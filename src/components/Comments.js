@@ -40,18 +40,20 @@ const Comments = ({ comments, yelpId }) => {
           
           
           {currentUser && currentUser.id != comment.userId._id && (
-           <div className="row">
-           <h6>By: {comment.userId.username}</h6>
-           
-           <p>{comment.content}</p>
-           
-         </div>
+            <>
+            <div className="col-sm-4"className="trialOne">
+          {comment.userId.username}:
+          </div>
+          <div className="col-sm-8" className="trial">
+          {comment.content}
+          </div>
+         </>
           )}
           
           
           {currentUser && currentUser.id === comment.userId._id && (
             <form>
-              <label>By: {comment.userId.username}</label>
+              <label className="trialOne">By: {comment.userId.username}</label>
               <br></br>
               <input
                 type="text"
