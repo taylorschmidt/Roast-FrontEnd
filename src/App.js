@@ -5,6 +5,7 @@ import {Switch, Route} from 'react-router-dom'
 
 //Components imports
 import Home from "./components/Home"
+import Main from "./components/Main"
 import Layout from "./components/common/Layout"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
@@ -19,7 +20,8 @@ const App = () => {
   return(
     <Layout>
       <Switch>
-        <Route exact path={['/', '/home']} component={Home} />
+        <Route exact path="/" component={Main} />
+        <Route exact path={'/home'} component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Signup} />
