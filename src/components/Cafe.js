@@ -141,6 +141,7 @@ const Cafe = (params) => {
                     <div>
                         <img src={yelpId.image_url} height='500vh' width='500vw'/>
                     </div>
+                    <p>*Information taken from Yelp are name, address, phone number, ratings, logo and images</p>
             {/* add yelp rating, yelp logo */}
                     <button onClick={handleClick}>Add to Favorites!</button>
                     {error && <div>{message}</div>}
