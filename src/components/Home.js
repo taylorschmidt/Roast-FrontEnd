@@ -60,6 +60,8 @@ const Home = () => {
         //call yelp api once form is submitted
         yelp()
         setLoading(false)
+        let teaImage = document.querySelector('.disappearImage')
+        teaImage.style.display = "none"
     }
 
 return(
@@ -79,11 +81,15 @@ return(
                         
                     <ButtonSpinner text="Find Cafes" loading={loading} />
         </Form>
+        
         </div>
+      
+        <img className="disappearImage d-flex justify-content-center" src="https://i.imgur.com/6DsCqIF.jpg" height="500vh" width="500vw"/>
+        <div className="disappearImage d-flex justify-content-center">Search to get started!</div>
         <Result yelpData={yelpData}/>
     </div>
 
-    
+   
 )
 
 }
