@@ -6,14 +6,9 @@ import React from 'react'
 const About = () => {
     const team = () => {
         return (
-<<<<<<< HEAD
-            <div className="container">
-            <div className="col s12 m6">
-=======
             <div className="row">
             {/* <div className="col s12 m6"> */}
             <div className="col-sm">
->>>>>>> a12d18f8c1f7de2dfae454f145435addab34ec86
                 <div className="card">
                 {/* <div className="card-person"> */}
                     <img className="profile-img-card" src="https://i.ibb.co/9gZSnJQ/P8143678.jpg" alt="P8143678" border="0" />
@@ -45,7 +40,6 @@ const About = () => {
                     </div>
                 </div>
                 </div>
-            </div>
             </div>
         )
     }
