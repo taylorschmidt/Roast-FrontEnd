@@ -1,8 +1,10 @@
 import React from 'react'
 import { useHistory } from "react-router-dom"
 import {getCurrentUser} from '../services/auth.service'
-import Favorites from './Favorites'
 
+
+//css
+import '../css/Profile.css'
 
 const Profile = () => {
     const currentUser = getCurrentUser()
@@ -21,13 +23,14 @@ const Profile = () => {
         <div className='container'>
             <button>Info</button>
             <button onClick={switchBetweenPages}>Favorites</button>
-            <header className="jumbotron">
+           
+           <div className="profileDiv">
                 <h3>
                     <strong>{currentUser.username}</strong>
                 </h3>
                 <h6>{currentUser.email}</h6>
                 {/* <h6>{currentUser.id}</h6> */}
-            </header>
+          </div>
             {/* <p>
                 <strong>Token:</strong>{currentUser.accessToken.substring(0, 20)}...{" "}
             </p> */}
@@ -42,7 +45,7 @@ const Profile = () => {
             currentUser.roles.map((role, index)=> <li key={index}>{role}</li>)} */}
             {/* {favorites.map((favorite, index)=> <li key={index}>{favorite}</li>)} */}
             
-           <Favorites />
+          
         </div>
     )
 }

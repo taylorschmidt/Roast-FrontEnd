@@ -60,6 +60,9 @@ const Home = () => {
         //call yelp api once form is submitted
         yelp()
         setLoading(false)
+
+        let test = document.querySelector(".whatever")
+        test.style.display = "none"
     }
 
 return(
@@ -76,6 +79,7 @@ return(
                     <ButtonSpinner text="Search" loading={loading} />
         </Form>
         <Result yelpData={yelpData}/>
+        <div className="whatever">Photo</div>
         </div>
 
     

@@ -1,0 +1,19 @@
+button{
+   background: rgb(60, 60, 60);
+   color: white;
+   border: 2px solid rgb(60, 60, 60);
+   margin: 0 auto;
+
+
+}
+
+.profileDiv{
+    height: 500px;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: block;
+    color: whitesmoke;
+    background-color: rgb(60, 60, 60);
+    text-align: center;
+}
