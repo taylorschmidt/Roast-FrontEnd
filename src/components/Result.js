@@ -8,6 +8,7 @@ const Result = ({yelpData}) => {
         return yelpData.map((data, index)=> {
             return (
                 <div key={index} className = "col s12 m6">
+                    <div className="card-deck">
                     <div className="card">
                         <img className="card-img-top" src={data.image_url} alt="cafe picture"/>
                     <div className="card-body">
@@ -22,7 +23,8 @@ const Result = ({yelpData}) => {
                     >
                         More Information
                     </Link> 
-                </div>
+                    </div>
+                    </div>
                 </div>
             )
         })
