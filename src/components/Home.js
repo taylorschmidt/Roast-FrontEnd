@@ -67,20 +67,24 @@ const Home = () => {
 
 return(
     <div className="container">
+        
+        
+        <div>
         <Form onSubmit={handleSearch} ref={form}>
                         <Input 
                             type='text'
-                            placeholder="search for location"
+                            placeholder="enter your location"
                             className='form-control'
                             name='location'
                             value={location}
                             onChange={onChangeLocation}
                         />
-                    <ButtonSpinner text="Search" loading={loading} />
+                        
+                    <ButtonSpinner text="Find Cafes" loading={loading} />
         </Form>
-        <Result yelpData={yelpData}/>
-        <div className="whatever">Photo</div>
         </div>
+        <Result yelpData={yelpData}/>
+    </div>
 
     
 )
