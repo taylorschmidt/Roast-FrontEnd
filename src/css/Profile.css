@@ -1,0 +1,29 @@
+.roundedButton{
+   background: rgb(60, 60, 60);
+   color: whitesmoke;
+   border: 3px solid rgb(60, 60, 60);
+   border-radius: 30px;
+   padding: 0px 20px;
+
+}
+
+.profileDiv{
+    height: 500px;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: block;
+    color: whitesmoke;
+    background-color: rgb(60, 60, 60);
+    text-align: center;
+}
+
+.coffeeBackground{
+    background: url("https://i.imgur.com/xDjlLZi.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    /* filter:blur(8px); */
+   
+}

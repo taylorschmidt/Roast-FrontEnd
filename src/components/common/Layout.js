@@ -26,11 +26,11 @@ const Layout = (props) => {
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link to={"/home"} className="nav-link">
-              Home
+            <Link to={"/about"} className="nav-link">
+              About
             </Link>
           </li>
-          {showAdminBoard && (
+          {/* {showAdminBoard && (
             <li className="nav-item">
               <Link to={"/admin"} className="nav-link">
                 Admin Board
@@ -42,8 +42,8 @@ const Layout = (props) => {
               <Link to={"/user"} className="nav-link">
                 User
               </Link>
-            </li>
-          )}
+            </li> */}
+          {/* )} */}
         </div>
         {currentUser ? (
           <div className="navbar-nav ml-auto">
@@ -73,8 +73,10 @@ const Layout = (props) => {
           </div>
         )}
       </nav>
-      <div className="container mt-3">{props.children}</div>
+      <div >{props.children}</div>
     </div>
   );
 };
 export default Layout;
+
+// className="container mt-3"
