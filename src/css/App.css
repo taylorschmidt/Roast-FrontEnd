@@ -31,9 +31,8 @@ label {
   border-radius: 50%;
 }
 
-.commentButton {
-  height: 50%;
-  width: 30%
+.homeContainer {
+  margin-top: 25vh;
 }
 
 .trial {
