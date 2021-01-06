@@ -78,8 +78,10 @@ const Layout = (props) => {
           </div>
         )}
       </nav>
-      <div className="container mt-3">{props.children}</div>
+      <div >{props.children}</div>
     </div>
   );
 };
 export default Layout;
+
+// className="container mt-3"

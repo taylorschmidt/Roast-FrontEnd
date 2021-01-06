@@ -61,8 +61,7 @@ const Home = () => {
         yelp()
         setLoading(false)
 
-        let test = document.querySelector(".whatever")
-        test.style.display = "none"
+        
     }
 
 return(

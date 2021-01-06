@@ -20,14 +20,16 @@ const Profile = () => {
 
 
     return(
-        <div className='container'>
-            <button>Info</button>
-            <button onClick={switchBetweenPages}>Favorites</button>
-           
+        <div className='coffeeBackground' >
+            <div className="d-flex justify-content-center pt-4 ">
+                <button className="mr-1 roundedButton">Info</button>
+                <button className="ml-1 roundedButton" onClick={switchBetweenPages}>Favorites</button>
+            </div>
            <div className="profileDiv">
                 <h3>
                     <strong>{currentUser.username}</strong>
                 </h3>
+                <h6></h6>
                 <h6>{currentUser.email}</h6>
                 {/* <h6>{currentUser.id}</h6> */}
           </div>
