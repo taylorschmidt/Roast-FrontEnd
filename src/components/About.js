@@ -6,6 +6,7 @@ import React from 'react'
 const About = () => {
     const team = () => {
         return (
+            <div className="container">
             <div className="col s12 m6">
                 <div className="card">
                 {/* <div className="card-person"> */}
@@ -35,6 +36,7 @@ const About = () => {
                         <p className="card-text">Juliana is currently taking a gap year before entering college and wanted to learn more about coding and becoming a software engineer. She enjoys drinking tea as a way to relax!</p>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }
