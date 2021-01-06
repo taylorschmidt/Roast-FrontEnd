@@ -55,3 +55,12 @@ label {
   height: 200px;
   width: 250px
 }
+
+.cafePage {
+  background: rgb(60, 60, 60);
+  color: whitesmoke
+}
+
+.disappearImage {
+ margin: 0 auto;
+}

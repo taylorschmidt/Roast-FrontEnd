@@ -29,11 +29,13 @@ const Comments = ({ comments, yelpId }) => {
           
           {!currentUser && (
             <>
-              <div className="col-sm-4"className="trialOne">
+            {/* <div className="col-sm-4"className="trialOne">
             {comment.userId.username}:
             </div>
             <div className="col-sm-8" className="trial">
-            {comment.content}
+            {comment.content} */}
+            <div>
+            <strong>{comment.userId.username}:</strong>{" "}{comment.content}
             </div>
            </>
           )}
