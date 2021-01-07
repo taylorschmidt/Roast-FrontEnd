@@ -57,10 +57,10 @@ const Login = (props) => {
         if(checkBtn.current.context._errors.length === 0){
             login(username, password)
             .then(
-                // ()=>{
-                //     props.history.push("/profile")
-                //     window.location.reload()
-                // },
+                ()=>{
+                    props.history.push("/profile")
+                    
+                },
                 //another way of formatting a .catch()
                 (error) => {
                     //checking data received from backend

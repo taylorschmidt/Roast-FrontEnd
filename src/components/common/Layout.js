@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getCurrentUser, logout } from "../../services/auth.service";
+import {useHistory} from "react-router-dom"
 
 const Layout = (props) => {
   const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const history = useHistory()
   useEffect(() => {
     // grab getCurrentuser from the auth service
     const user = getCurrentUser();
@@ -17,6 +19,8 @@ const Layout = (props) => {
   }, []);
   const logOut = () => {
     logout();
+    
+    history.push('/')
   };
   return (
     <div>
