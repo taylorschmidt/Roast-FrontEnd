@@ -59,7 +59,7 @@ const Login = (props) => {
             .then(
                 ()=>{
                     props.history.push("/profile")
-                    window.location.reload()
+                    
                 },
                 //another way of formatting a .catch()
                 (error) => {

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {setItem, getItem, removeItem} from '../utilities/localStorage.utilities'
 
+
 const API_URL = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_AUTH : process.env.REACT_APP_PRO_URL_AUTH;
 
 //function to register user
@@ -30,6 +31,7 @@ export const login = (username, password) => {
 //logout the user
 export const logout = () => {
     removeItem('user')
+    
 }
 
 //get the current user
