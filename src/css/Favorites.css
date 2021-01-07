@@ -6,6 +6,13 @@
     padding: 0px 20px;
  
  }
+ .whiteRoundedButton{
+    background: whitesmoke;
+    color: rgb(60, 60, 60);
+    border: 3px solid whitesmoke;
+    border-radius: 30px;
+    padding: 0px 20px;
+ }
  
  .favoriteDiv{
      height: 500px;
@@ -28,6 +35,14 @@
     
  }
 
- .favorite{
-     color: whitesmoke;
+ .favoriteCard{
+     background-color: rgb(60, 60, 60);
  }
+
+ li{
+     list-style-type: none;
+ }
+ /* .favorite{
+     /* color: whitesmoke; 
+ }
+*/

@@ -3,6 +3,8 @@ import {useEffect, useState} from 'react'
 import {useHistory} from "react-router-dom"
 import {getCurrentUser} from '../services/auth.service'
 import axios from 'axios'
+import Card from 'react-bootstrap/Card'
+import CardColumns from 'react-bootstrap/CardColumns'
 // import { Redirect } from 'react-router-dom'
 import '../css/Favorites.css'
 
@@ -35,11 +37,19 @@ const Favorites = (props) => {
         return favs.map((favorite, index)=>{
             return (
                 
-            <div className="d-flex justify-content-center pt-4 ">
-                {/* <div>{yelp(favorite)}</div> */}
-                <li className="favorite" key = {index}>{favorite}</li>
-                <button className="roundedButton" onClick={deleteFavorite}>Delete</button>
-             </div>   
+             <> 
+
+              <Card style={{ width: '18rem'}} bg={'dark'} text={'white'}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Body>
+                  <Card.Title>Favorite {index + 1}</Card.Title>
+                     <div>
+                        <li className="favorite" key = {index}>{favorite}</li>
+                        <button className="whiteRoundedButton" onClick={deleteFavorite}>Delete</button>
+                     </div>
+                   </Card.Body>
+               </Card>
+            </>
             )
         })
     }
@@ -129,19 +139,22 @@ const Favorites = (props) => {
 
 
     return(
-        <div className='coffeeBackground'> 
+    <div className='coffeeBackground'> 
         <div className="d-flex justify-content-center pt-4 ">
           <button className="mr-1 roundedButton" onClick={switchBetweenPages}>Info</button>
           <button className="ml-1 roundedButton">Favorites</button>
         </div>
 
-            <div className="row">{display()}</div>
-         
+        
+          <div class="row mt-3" >{display()}</div>
+
             {/* {yelpData} */}
             {/* <button onClick={displayFavorites}>Test</button> */}
             {/* <button onClick={deleteFavorite}>Delete Favorite</button> */}
-           
+               
+               
         </div>
+        
     )
 }
 
