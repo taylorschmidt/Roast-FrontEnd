@@ -2,13 +2,14 @@
 ## Introduction
     A website that allows you to search for the nearest cafe in your area
 ## Link to deployed front-end
+http://roastfrontend.surge.sh/
 ## Landing Page
 ## Technology
     * React.js
     * Yelp API
     * React Bootstrap
 ## Link to Backend repo
-
+https://github.com/SFX818/Team-8-backend
 ## How to Set Up App
     * fork and clone repo
     * npm i
