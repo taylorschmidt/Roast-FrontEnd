@@ -26,11 +26,16 @@ const Profile = () => {
                 <button className="ml-1 roundedButton" onClick={switchBetweenPages}>Favorites</button>
             </div>
            <div className="profileDiv">
-                <h3>
-                    <strong>{currentUser.username}</strong>
-                </h3>
-                <h6></h6>
-                <h6>{currentUser.email}</h6>
+                
+                <h6>
+                    <strong>Name:</strong>
+                    {currentUser.username}
+                </h6>
+                <h6>
+                    <strong>Email:</strong>
+                     {currentUser.email}
+                </h6>
+
                 {/* <h6>{currentUser.id}</h6> */}
           </div>
             {/* <p>
