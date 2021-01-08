@@ -130,42 +130,47 @@ const Cafe = (params) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-sm-8" className="cafePage">
-          <div className="row">
+        <div className="col-sm-8 cafePage">
+          <div className="row cafeTop">
             <div className="col-sm-5">
-              <img src={yelpId.image_url} height="250px" width="250px" />
+              <img className="cafeImage" src={yelpId.image_url} height="250px" width="250px" />
             </div>
             <div className="col-sm-7">
               <h5>{yelpId.name}</h5>
-              <h5>Address: {yelpId.location.display_address}</h5>
-              <h5>Phone Number: {yelpId.phone}</h5>
-              <h5>
+              <h6>Address: {yelpId.location.display_address}</h6>
+              <h6>Phone Number: {yelpId.phone}</h6>
+              <h6>
                 Rating: {yelpId.rating}/5{" "}
                 <img src="https://m.yelp.nl/favicon.ico" />
-              </h5>
+              </h6>
+              <h6><a href={yelpId.url}>Website</a></h6>
             </div>
           </div>
-          <div className="row">
-          <button onClick={handleClick}>Add to Favorites!</button>
-          </div>
-          <div className="row">
+          <div className="row favoritesRow">
+            <div className="col text-center">
+          <button className="btn btn-light" onClick={handleClick}>Add to Favorites!</button>
           {error && <div>{message}</div>}
           </div>
+          </div>
+          <div className="col yelpDisclaimer">
           <div className="row">
-          <p>
-            *All information from Yelp.
-          </p>
+          </div>
+          <i>
+            *Cafe name, address, phone, and rating from YELP.
+          </i>
           </div>
           
         </div>
         {/* <div className="col-md-1"></div> */}
         
-          <div className="col-sm-4">
+          <div className="col-sm-4 commentPage">
             <Comments comments={comments} yelpId={yelpId} />
             <br></br>
             {/* <h5>Add a Review for {yelpId.name}:</h5> */}
-            <Form onSubmit={submitComment} ref={form}>
+            <div className="commentForm">
+            <Form className="commentFormz" onSubmit={submitComment} ref={form}>
               <Input
+                style={{ borderRadius: '20px' }}
                 type="text"
                 placeholder="leave a review"
                 className="form-control"
@@ -175,6 +180,7 @@ const Cafe = (params) => {
               />
               {/* <ButtonSpinner text="Submit" loading={loading} /> */}
             </Form>
+            </div>
           
         </div>
       </div>

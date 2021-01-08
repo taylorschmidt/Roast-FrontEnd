@@ -25,30 +25,24 @@ const Comments = ({ comments, yelpId }) => {
 
     return comments.map((comment, index) => {
       return (
-        <div className="row" key={index}>
+        <div className="row comment" key={index}>
           
           {!currentUser && (
             <>
-            {/* <div className="col-sm-4"className="trialOne">
-            {comment.userId.username}:
-            </div>
-            <div className="col-sm-8" className="trial">
-            {comment.content} */}
             <div>
             <strong>{comment.userId.username}:</strong>{" "}{comment.content}
             </div>
+           
+           
            </>
           )}
           
           
           {currentUser && currentUser.id != comment.userId._id && (
             <>
-            <div className="col-sm-4"className="trialOne">
-          {comment.userId.username}:
-          </div>
-          <div className="col-sm-8" className="trial">
-          {comment.content}
-          </div>
+            <div>
+            <strong>{comment.userId.username}:</strong>{" "}{comment.content}
+            </div>
          </>
           )}
           
@@ -133,7 +127,7 @@ const Comments = ({ comments, yelpId }) => {
 
   return (
     <div className="container">
-      <div className="row">{display()}</div>
+      <div className="col">{display()}</div>
     </div>
   );
 };

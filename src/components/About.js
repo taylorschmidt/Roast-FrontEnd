@@ -44,7 +44,7 @@ const About = () => {
         )
     }
     return (
-        <div>
+        <div className="container searchContainer">
             <div className="row">{team()}</div>
         </div>
 

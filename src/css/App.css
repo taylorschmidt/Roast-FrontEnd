@@ -34,15 +34,7 @@ label {
 
 .homeContainer {
   margin-top: 25vh;
-}
-
-.trial {
-  overflow-wrap:break-word;
-}
-
-.trialOne {
-  overflow-wrap:break-word;
-  font-weight: bold;
+  margin-left: 10vh
 }
 
 .card-deck {
@@ -58,9 +50,74 @@ label {
 
 .cafePage {
   background: rgb(60, 60, 60);
-  color: whitesmoke
+  color: whitesmoke;
+  padding: 10px
+  
 }
 
 .disappearImage {
  margin: 0 auto;
+}
+
+.cafeImage {
+  border: 1px solid whitesmoke;
+  padding: 20px;
+  margin-left: 20px;
+
+}
+
+.cafeTop {
+  margin-top: 40px;
+}
+
+.cafePage {
+  margin-top: 10vh;
+}
+
+.favoritesRow {
+  margin-top: 5vh;
+}
+
+.yelpDisclaimer {
+  margin-top: 5vh;
+  
+}
+
+.commentPage {
+  margin-top: 10vh;
+  position: relative
+  /* border-top: 1px solid gray */
+}
+
+.comment {
+  border-bottom: 1px solid gray;
+  padding: 10px
+}
+
+.commentForm {
+position: absolute; 
+bottom: 0;
+}
+
+.commentFormz {
+  width: 25vw;
+}
+
+.searchContainer {
+margin-top: 5vh;
+text-align: center
+}
+
+.imagesHome {
+  text-align: center
+}
+
+.searchForm {
+  width: 50vw;
+  text-align: center;
+}
+
+.searchFormContainer {
+  margin-left: 16%;
+  margin-bottom: 10px
 }
