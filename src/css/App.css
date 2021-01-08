@@ -58,9 +58,60 @@ label {
 
 .cafePage {
   background: rgb(60, 60, 60);
-  color: whitesmoke
+  color: whitesmoke;
+  padding: 10px
+  
 }
 
 .disappearImage {
  margin: 0 auto;
+}
+
+.cafeImage {
+  border: 1px solid whitesmoke;
+  padding: 20px;
+  /* margin-right: 10px; */
+  margin-left: 20px;
+
+}
+
+.cafeTop {
+  margin-top: 40px;
+}
+
+.cafePage {
+  margin-top: 10vh;
+}
+
+.favoritesRow {
+  margin-top: 5vh;
+}
+
+.yelpDisclaimer {
+  margin-top: 5vh;
+  
+}
+
+.commentPage {
+  margin-top: 10vh;
+  position: relative
+  /* border-top: 1px solid gray */
+}
+
+.comment {
+  border-bottom: 1px solid gray;
+  padding: 10px
+}
+
+.commentForm {
+position: absolute; 
+bottom: 0;
+}
+
+.commentFormz {
+  width: 25vw;
+}
+
+.trialz {
+  border-radius: 5px
 }
