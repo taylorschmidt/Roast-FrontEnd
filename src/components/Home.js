@@ -65,7 +65,7 @@ const Home = () => {
     }
 
 return(
-    <div className="container">
+    <div className="container searchContainer">
         
         
         <div>
@@ -81,11 +81,11 @@ return(
                         
                     <ButtonSpinner text="Find Cafes" loading={loading} />
         </Form>
-        
         </div>
-      
-        <img className="disappearImage d-flex justify-content-center" src="https://i.imgur.com/6DsCqIF.jpg" height="500vh" width="500vw"/>
-        <div className="disappearImage d-flex justify-content-center">Search to get started!</div>
+        <div className="imagesHome">     
+        <img className="disappearImage" src="https://i.imgur.com/6DsCqIF.jpg" height="500vh" width="500vw"/>
+        <div className="disappearImage">Search to get started!</div>
+        </div> 
         <Result yelpData={yelpData}/>
     </div>
 

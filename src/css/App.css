@@ -34,15 +34,7 @@ label {
 
 .homeContainer {
   margin-top: 25vh;
-}
-
-.trial {
-  overflow-wrap:break-word;
-}
-
-.trialOne {
-  overflow-wrap:break-word;
-  font-weight: bold;
+  margin-left: 10vh
 }
 
 .card-deck {
@@ -112,6 +104,10 @@ bottom: 0;
   width: 25vw;
 }
 
-.trialz {
-  border-radius: 5px
+.searchContainer {
+margin-top: 5vh
+}
+
+.imagesHome {
+  text-align: center
 }
