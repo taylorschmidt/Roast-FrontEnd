@@ -8,6 +8,12 @@ import Comments from "./Comments";
 import "../css/App.css";
 import ButtonSpinner from "./common/ButtonSpinner";
 
+const API_URL_CAFE = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_CAFE : process.env.REACT_APP_PRO_URL_CAFE;
+
+const API_URL_COMMENTS = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_COMMENTS : process.env.REACT_APP_PRO_URL_COMMENTS;
+
+const API_URL_FAVORITES = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_FAVORITES : process.env.REACT_APP_PRO_URL_FAVORITES;
+
 const Cafe = (params) => {
   const form = useRef();
   const cafeData = params.location.state.data;
@@ -37,7 +43,7 @@ const Cafe = (params) => {
         YelpId: yelpId.id,
       };
       axios
-        .put("http://localhost:8080/api/user/favorites", yelp)
+        .put(API_URL_FAVORITES, yelp)
         .then((res) => console.log("favorites:", res))
         .catch((err) => console.log(err));
     }
@@ -54,7 +60,7 @@ const Cafe = (params) => {
       YelpURL: yelpId.url,
     };
     axios
-      .post("http://localhost:8080/api/cafe", yelp)
+      .post(API_URL_CAFE, yelp)
       .then((res) => {
         console.log("here is our new cafe saved on page load", res.data);
       })
@@ -91,7 +97,7 @@ const Cafe = (params) => {
       userId: currentUserId,
     };
     axios
-      .post("http://localhost:8080/api/comments", newComment)
+      .post(API_URL_COMMENTS, newComment)
       .then((res) => {
         console.log("here is our new comment:", res.data);
       })
@@ -107,7 +113,7 @@ const Cafe = (params) => {
     // }
     let id = yelpId.id;
     axios
-      .get("http://localhost:8080/api/comments/" + id)
+      .get(API_URL_COMMENTS + id)
       .then((res) => {
         console.log("here are all the comments:", res.data);
         let allComments = res.data;

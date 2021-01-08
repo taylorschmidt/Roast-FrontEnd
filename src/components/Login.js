@@ -58,8 +58,9 @@ const Login = (props) => {
             login(username, password)
             .then(
                 ()=>{
-                    props.history.push("/profile")
                     
+                    props.history.push("/profile")
+                    window.location.reload()
                 },
                 //another way of formatting a .catch()
                 (error) => {
@@ -76,6 +77,7 @@ const Login = (props) => {
 
     console.log(username, password)
     return(
+        <div className="logInContainer">
         <div className="col-md-12">
             <div className="card card-container">
                 <img 
@@ -118,6 +120,7 @@ const Login = (props) => {
                     <CheckButton style={{display: "none"}} ref={checkBtn}/>
                 </Form>
             </div>
+        </div>
         </div>
     )
 }
