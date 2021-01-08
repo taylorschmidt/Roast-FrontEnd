@@ -62,15 +62,18 @@ const Home = () => {
         setLoading(false)
         let teaImage = document.querySelector('.disappearImage')
         teaImage.style.display = "none"
+        let teaText = document.querySelector('.disappearText')
+        teaText.style.display = "none"
     }
 
 return(
     <div className="container searchContainer">
         
         
-        <div>
-        <Form onSubmit={handleSearch} ref={form}>
+        <div className="searchFormContainer">
+        <Form className="searchForm" onSubmit={handleSearch} ref={form}>
                         <Input 
+                            style={{ borderRadius: '20px' }}
                             type='text'
                             placeholder="enter your location"
                             className='form-control'
@@ -78,13 +81,13 @@ return(
                             value={location}
                             onChange={onChangeLocation}
                         />
-                        
-                    <ButtonSpinner text="Find Cafes" loading={loading} />
+                        <button className="ml-1 roundedButton">Find Cafes</button>
+                    {/* <ButtonSpinner text="Find Cafes" loading={loading} /> */}
         </Form>
         </div>
         <div className="imagesHome">     
         <img className="disappearImage" src="https://i.imgur.com/6DsCqIF.jpg" height="500vh" width="500vw"/>
-        <div className="disappearImage">Search to get started!</div>
+        <div className="disappearText">Search to get started!</div>
         </div> 
         <Result yelpData={yelpData}/>
     </div>

@@ -62,7 +62,6 @@ label {
 .cafeImage {
   border: 1px solid whitesmoke;
   padding: 20px;
-  /* margin-right: 10px; */
   margin-left: 20px;
 
 }
@@ -105,9 +104,20 @@ bottom: 0;
 }
 
 .searchContainer {
-margin-top: 5vh
+margin-top: 5vh;
+text-align: center
 }
 
 .imagesHome {
   text-align: center
+}
+
+.searchForm {
+  width: 50vw;
+  text-align: center;
+}
+
+.searchFormContainer {
+  margin-left: 16%;
+  margin-bottom: 10px
 }
