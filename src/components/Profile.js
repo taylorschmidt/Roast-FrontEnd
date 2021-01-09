@@ -26,6 +26,12 @@ const Profile = () => {
                 <button className="ml-1 roundedButton" onClick={switchBetweenPages}>Favorites</button>
             </div>
            <div className="profileDiv">
+               <br/>
+                   <img 
+                        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                        alt="profile-img"
+                        className="profile-img-card"
+                    />
                 
                 <h6>
                     <strong>Name:</strong>
@@ -33,8 +39,11 @@ const Profile = () => {
                 </h6>
                 <h6>
                     <strong>Email:</strong>
+                    
                      {currentUser.email}
                 </h6>
+                
+
 
                 {/* <h6>{currentUser.id}</h6> */}
           </div>

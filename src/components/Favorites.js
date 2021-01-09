@@ -4,7 +4,6 @@ import {useHistory} from "react-router-dom"
 import {getCurrentUser} from '../services/auth.service'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
-import CardColumns from 'react-bootstrap/CardColumns'
 // import { Redirect } from 'react-router-dom'
 import '../css/Favorites.css'
 
@@ -62,7 +61,7 @@ const Favorites = (props) => {
         const id = {
             YelpId: e
         }
-        console.log("e", e)
+        
         axios.get("http://localhost:8080/api/cafe/favorite", id)
         .then((res)=>{
             
