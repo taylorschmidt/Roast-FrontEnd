@@ -142,7 +142,7 @@ const Favorites = (props) => {
         </div>
 
         
-          <div class="row mt-3" >{display()}</div>
+          <div className="row mt-3" >{display()}</div>
 
             {/* {yelpData} */}
             {/* <button onClick={displayFavorites}>Test</button> */}
