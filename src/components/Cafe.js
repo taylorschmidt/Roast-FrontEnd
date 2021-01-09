@@ -1,18 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import Comments from "./Comments";
 import "../css/App.css";
-import ButtonSpinner from "./common/ButtonSpinner";
 
-const API_URL_CAFE = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_CAFE : process.env.REACT_APP_PRO_URL_CAFE;
+const API_URL_CAFE =
+  process.env.NODE_ENV === "development"
+    ? process.env.REACT_APP_DEV_URL_CAFE
+    : process.env.REACT_APP_PRO_URL_CAFE;
 
-const API_URL_COMMENTS = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_COMMENTS : process.env.REACT_APP_PRO_URL_COMMENTS;
+const API_URL_COMMENTS =
+  process.env.NODE_ENV === "development"
+    ? process.env.REACT_APP_DEV_URL_COMMENTS
+    : process.env.REACT_APP_PRO_URL_COMMENTS;
 
-const API_URL_FAVORITES = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_FAVORITES : process.env.REACT_APP_PRO_URL_FAVORITES;
+const API_URL_FAVORITES =
+  process.env.NODE_ENV === "development"
+    ? process.env.REACT_APP_DEV_URL_FAVORITES
+    : process.env.REACT_APP_PRO_URL_FAVORITES;
 
 const Cafe = (params) => {
   const form = useRef();
@@ -89,8 +96,6 @@ const Cafe = (params) => {
   const addComment = () => {
     const currentUser = getCurrentUser();
     const currentUserId = currentUser.id;
-    //add error message to tell user to log in to add comment
-    console.log("Here is the input:", currentUserId, content, yelpId.id);
     const newComment = {
       content: content,
       cafeId: yelpId.id,
@@ -108,14 +113,10 @@ const Cafe = (params) => {
   };
 
   const displayComments = () => {
-    // const display = {
-    //   cafeId: yelpId.id
-    // }
     let id = yelpId.id;
     axios
       .get(API_URL_COMMENTS + id)
       .then((res) => {
-        console.log("here are all the comments:", res.data);
         let allComments = res.data;
         setComments(allComments);
       })
@@ -138,45 +139,54 @@ const Cafe = (params) => {
       <div className="row">
         <div className="col-sm-8 cafePage">
           <div className="row cafeTop">
-            <div className="col-sm-5">
-              <img className="cafeImage" src={yelpId.image_url} height="250px" width="250px" />
+            <div className="row">
+              <div className="col">
+                <img
+                  className="cafeImage"
+                  src={yelpId.image_url}
+                  height="250px"
+                  width="250px"
+                />
+              </div>
             </div>
-            <div className="col-sm-7">
-              <h5>{yelpId.name}</h5>
-              <h6>Address: {yelpId.location.display_address}</h6>
-              <h6>Phone Number: {yelpId.phone}</h6>
-              <h6>
-                Rating: {yelpId.rating}/5{" "}
-                <img src="https://m.yelp.nl/favicon.ico" />
-              </h6>
-              <h6><a href={yelpId.url}>Website</a></h6>
+            <div className="row">
+              <div className="col cafeInfo">
+                <h5>{yelpId.name}</h5>
+                <h6>Address: {yelpId.location.display_address}</h6>
+                <h6>Phone Number: {yelpId.phone}</h6>
+                <h6>
+                  Rating: {yelpId.rating}/5{" "}
+                  <img src="https://m.yelp.nl/favicon.ico" />
+                </h6>
+                <h6>
+                  <a href={yelpId.url}>Website</a>
+                </h6>
+              </div>
             </div>
           </div>
           <div className="row favoritesRow">
             <div className="col text-center">
-          <button className="btn btn-light" onClick={handleClick}>Add to Favorites!</button>
-          {error && <div>{message}</div>}
-          </div>
+              <button className="btn btn-light" onClick={handleClick}>
+                Add to Favorites!
+              </button>
+              {error && <div>{message}</div>}
+            </div>
           </div>
           <div className="col yelpDisclaimer">
-          <div className="row">
+            <div className="row"></div>
+            <i>*Cafe name, address, phone, and rating from YELP.</i>
           </div>
-          <i>
-            *Cafe name, address, phone, and rating from YELP.
-          </i>
-          </div>
-          
         </div>
-        {/* <div className="col-md-1"></div> */}
-        
-          <div className="col-sm-4 commentPage">
-            <Comments comments={comments} yelpId={yelpId} />
-            <br></br>
-            {/* <h5>Add a Review for {yelpId.name}:</h5> */}
-            <div className="commentForm">
+
+        <div className="col-sm-4 commentPage">
+          <Comments comments={comments} yelpId={yelpId} />
+          <br></br>
+          {/* <h5>Add a Review for {yelpId.name}:</h5> */}
+
+          <div className="commentForm">
             <Form className="commentFormz" onSubmit={submitComment} ref={form}>
               <Input
-                style={{ borderRadius: '20px' }}
+                style={{ borderRadius: "20px" }}
                 type="text"
                 placeholder="leave a review"
                 className="form-control"
@@ -184,13 +194,11 @@ const Cafe = (params) => {
                 value={content}
                 onChange={onChangeContent}
               />
-              {/* <ButtonSpinner text="Submit" loading={loading} /> */}
             </Form>
-            </div>
-          
+          </div>
         </div>
       </div>
-   </div>
+    </div>
   );
 };
 

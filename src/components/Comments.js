@@ -2,22 +2,14 @@ import React, { useRef, useState } from "react";
 import axios from "axios";
 import { getCurrentUser } from "../services/auth.service";
 
-const Comments = ({ comments, yelpId }) => {
-  // console.log("here are the passed comments", comments);
-  // //set state to be content of comment
-  // let mappedComments = comments.map((comment) => {
-  //   return [comment];
-  // });
-  // console.log(mappedComments);
-  // let [content, setContent] = useState(mappedComments);
-  // console.log("STATE", content);
- 
+const API_URL_COMMENTS = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_COMMENTS : process.env.REACT_APP_PRO_URL_COMMENTS;
 
+const Comments = ({ comments, yelpId }) => {
+  
   let newValue;
 
   const updateComment = (e) => {
     newValue = e.target.value;
-    console.log("HERE IS THE NEW VALUE", newValue);
   };
 
   const display = () => {
@@ -76,7 +68,7 @@ const Comments = ({ comments, yelpId }) => {
                     console.log("it worked! only user should see this.");
                     let id = comment._id;
                     axios
-                      .put("http://localhost:8080/api/comments/" + id, {
+                      .put(API_URL_COMMENTS + id, {
                         content: newValue,
                       })
                       .then((res) => {
@@ -105,7 +97,7 @@ const Comments = ({ comments, yelpId }) => {
                     let id = comment._id;
                     console.log(id);
                     axios
-                      .delete("http://localhost:8080/api/comments/" + id)
+                      .delete(API_URL_COMMENTS + id)
                       .then((res) => {
                         console.log("comment was deleted:", res.data);
                       })
