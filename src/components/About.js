@@ -1,16 +1,11 @@
 import React from 'react'
 
-// <a href="https://ibb.co/qjJVBzT"><img src="https://i.ibb.co/9gZSnJQ/P8143678.jpg" alt="P8143678" border="0"></a>
-{/* <a href="https://ibb.co/gmrbhrg"><img src="https://i.ibb.co/NtFgbFY/FB-IMG-1608238633178.jpg" alt="FB-IMG-1608238633178" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>image upload service</a><br /> */}
-
 const About = () => {
     const team = () => {
         return (
             <div className="row">
-            {/* <div className="col s12 m6"> */}
             <div className="col-sm">
                 <div className="card">
-                {/* <div className="card-person"> */}
                     <img className="profile-img-card" src="https://i.ibb.co/9gZSnJQ/P8143678.jpg" alt="P8143678" border="0" />
                     <div className="card-body">
                         <h3 className="card-title">Taylor Schmidt</h3>
