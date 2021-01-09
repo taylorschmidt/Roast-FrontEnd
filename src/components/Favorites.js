@@ -8,6 +8,8 @@ import CardColumns from 'react-bootstrap/CardColumns'
 // import { Redirect } from 'react-router-dom'
 import '../css/Favorites.css'
 
+const API_URL_FAVORITES = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_URL_FAVORITES : process.env.REACT_APP_PRO_URL_FAVORITES;
+
 const Favorites = (props) => {
     const currentUser = getCurrentUser()
     const history = useHistory()
@@ -18,7 +20,7 @@ const Favorites = (props) => {
         //     id: currentUser.id
         // }
         let id = currentUser.id
-        axios.get("http://localhost:8080/api/user/favorites/" + id)
+        axios.get(API_URL_FAVORITES + id)
         .then((res)=>{
             
             let favorites = res.data.favorites
@@ -111,7 +113,7 @@ const Favorites = (props) => {
 
         let id = currentUser.id
         
-        axios.put(`http://localhost:8080/api/user/favorites/${id}`, {yelpId:YELP})
+        axios.put(API_URL_FAVORITES + id, {yelpId:YELP})
         .then((res)=>{
             console.log("deleting favorites", res.data)
             window.location.reload()

@@ -112,8 +112,9 @@ const Signup = (props) => {
 
     console.log(username, password)
     return(
+        <div className="container logInContainer">
         <div className="col-md-12">
-            <div className="card card-container">
+            <div className="card card-container signUpCard">
                 <img 
                     src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
                     alt="profile-img"
@@ -164,6 +165,7 @@ const Signup = (props) => {
                     <CheckButton style={{display: "none"}} ref={checkBtn}/>
                 </Form>
             </div>
+        </div>
         </div>
     )
 }
