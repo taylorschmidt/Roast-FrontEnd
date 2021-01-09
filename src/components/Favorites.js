@@ -12,7 +12,7 @@ const Favorites = (props) => {
     const currentUser = getCurrentUser()
     const history = useHistory()
     const [favs,setFavs] = useState([])
-    // const [yelpData, setYelpData] = useState([])
+    const [cafe,setCafe] = useState([])
     const displayFavorites  = () =>{
         // const id = {
         //     id: currentUser.id
@@ -35,14 +35,16 @@ const Favorites = (props) => {
 
     const display = () =>{
         return favs.map((favorite, index)=>{
+            gettingCafeData(favorite)
             return (
                 
              <> 
 
               <Card style={{ width: '18rem'}} bg={'dark'} text={'white'}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={cafe.ImageURL} />
                 <Card.Body>
-                  <Card.Title>Favorite {index + 1}</Card.Title>
+                  <Card.Title>{cafe.Name}</Card.Title>
+                   <Card.Text>{cafe.Address}</Card.Text>
                      <div>
                         <li className="favorite" key = {index}>{favorite}</li>
                         <button className="whiteRoundedButton" onClick={deleteFavorite}>Delete</button>
@@ -54,29 +56,22 @@ const Favorites = (props) => {
         })
     }
     
-    const yelp = (ID) => {
-        let API_KEY = "opj0qRGSY4uyO7tbxbzc6OICo0yziXXjc-p1vwBmnqLU5WM9KesSE1t0s8Hgo5x4dCcJDYWEvDeRx7HpK8mG-RKp6G6x5eh0dcDYD8vgs7MWnu_W20lpvaZMICTVX3Yx"
-        axios.get(`${'https://sleepy-stream-23951.herokuapp.com/'}https://api.yelp.com/v3/businesses/${ID}`, {
-            headers: {
-                Authorization: `Bearer ${API_KEY}`
-            },
-            params: {
-                   
-                limit: 1 //we can make a limit for how many appear when they search
-            }
-    })
-        .then((res) => {
-            //set results to state
-            let yelpData = res.data
-            //console log the yelp results for that searched location
-            console.log(res)
-            console.log("YELP DATA:", yelpData)
-           
+    const gettingCafeData = (e) =>{
+        const id = {
+            YelpId: e
+        }
+        console.log("e", e)
+        axios.get("http://localhost:8080/api/cafe/favorite", id)
+        .then((res)=>{
+            
+            setCafe(res.data)
+            
            
         })
-        .catch((err) => {
-            console.log ('error connecting to YELP')
+        .catch((err)=>{
+            console.log(err)
         })
+
     }
     
 
