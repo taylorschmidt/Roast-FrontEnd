@@ -1,21 +1,46 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { useHistory } from "react-router-dom"
 import {getCurrentUser} from '../services/auth.service'
-
+import {Link} from 'react-router-dom';
+import axios from "axios";
 
 //css
 import '../css/Profile.css'
 
 const Profile = () => {
+
+    const API_URL_FAVORITES =
+    process.env.NODE_ENV === "development"
+      ? process.env.REACT_APP_DEV_URL_FAVORITES
+      : process.env.REACT_APP_PRO_URL_FAVORITES;
+
     const currentUser = getCurrentUser()
     const history = useHistory()
+    const [favs, setFavs] = useState();
 
-     const switchBetweenPages = () =>{
-         history.push("/favorites")
-     }
+    //  const switchBetweenPages = () =>{
+    //      history.push("/favorites")
+    //  }
 
+     const getFavorites = () => {
+        let id = currentUser.id;
+        axios
+          .get(API_URL_FAVORITES + id)
+          .then((res) => {
+            let favorites = res.data.favorites
+            console.log('FAVORITES', favorites)
+            setFavs(favorites)
+          })
+    
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      
    
-
+  useEffect(() => {
+    getFavorites();
+  }, []);
 
 
 
@@ -23,7 +48,15 @@ const Profile = () => {
         <div className='coffeeBackground' >
             <div className="d-flex justify-content-center pt-4 ">
                 <button className="mr-1 roundedButton">Info</button>
-                <button className="ml-1 roundedButton" onClick={switchBetweenPages}>Favorites</button>
+                <Link to={{
+                        pathname: `/favorites`,
+                        state: {favs}
+                    }}
+                    
+                    >
+                       Favorites
+                    </Link> 
+                {/* <button className="ml-1 roundedButton" onClick={switchBetweenPages}>Favorites</button> */}
             </div>
            <div className="profileDiv">
                <br/>
@@ -45,21 +78,8 @@ const Profile = () => {
                 
 
 
-                {/* <h6>{currentUser.id}</h6> */}
+                
           </div>
-            {/* <p>
-                <strong>Token:</strong>{currentUser.accessToken.substring(0, 20)}...{" "}
-            </p> */}
-            {/* <p>
-                <strong>My User Id:</strong> {currentUser.id}
-            </p>
-            <p>
-                <strong>My Email:</strong> {currentUser.email}
-            </p> */}
-            {/* if current user has roles, map through and display them */}
-            {/* {currentUser.roles &&
-            currentUser.roles.map((role, index)=> <li key={index}>{role}</li>)} */}
-            {/* {favorites.map((favorite, index)=> <li key={index}>{favorite}</li>)} */}
             
           
         </div>

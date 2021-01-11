@@ -30,7 +30,7 @@ const Comments = ({ comments, yelpId }) => {
           )}
           
           
-          {currentUser && currentUser.id != comment.userId._id && (
+          {currentUser && currentUser.id !== comment.userId._id && (
             <>
             <div>
             <strong>{comment.userId.username}:</strong>{" "}{comment.content}
