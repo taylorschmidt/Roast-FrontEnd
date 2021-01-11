@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Main = () => {
   return (
-    <div className="container" className="homeContainer">
+    <div className="container homeContainer">
       <div className="row">
         <div className="col-sm-6">
           <h1>Roast</h1>
@@ -18,7 +18,7 @@ const Main = () => {
           </Link>
         </div>
         <div className="col-sm-6">
-          <img
+          <img className="coffeeCup"
             src="https://i.imgur.com/wtkKGSU.png"
             height="100%"
             width="100%"

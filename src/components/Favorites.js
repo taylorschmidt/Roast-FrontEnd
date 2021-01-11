@@ -9,22 +9,27 @@ import "../css/Favorites.css";
 
 
 
-const Favorites = (params) => {
+const Favorites = ({favorites}) => {
+
   const currentUser = getCurrentUser();
   const history = useHistory();
  
-  const cafeData = params.location.state.favs
-  console.log(cafeData)
+  const API_URL_DELFAVES =
+  process.env.NODE_ENV === "development"
+    ? process.env.REACT_APP_DEV_URL_DELFAVES
+    : process.env.REACT_APP_PRO_URL_DELFAVES;
+
+    console.log(favorites)
 
 
 
 
 const display = () => {
-    return cafeData.map((data, index)=>{
+    return favorites.map((data, index)=>{
         console.log(data._id)
         return(
                 <div key={index} className = "col s12 m6">
-                    <div className="card-deck">
+                    {/* <div className="card-deck"> */}
                     <div className="card">
                         <img className="card-img-top" src={data.ImageURL} alt="cafe picture"/>
                     <div className="card-body">
@@ -34,85 +39,32 @@ const display = () => {
                             const currentUser = getCurrentUser();
                             let id = currentUser.id
                             console.log(data._id)
-                            let info = {
-                                cafeId: data._id
-                            }
                             let cafeId = data._id
                             // console.log(cafeId)
                             axios
-                              .put("http://localhost:8080/api/user/favorites/delete/" + id + "/" + cafeId)
+                              .put(API_URL_DELFAVES + id + "/" + cafeId)
                               .then((res) => {
                                 console.log("favorite was deleted:", res.data);
                               })
                               .catch((err) => {
                                 console.log(err);
                               });
-                              cafeData.splice(data)
                               window.location.reload();
                         }}>Delete</button>
                     </div>
                     </div>
-                    </div>
+                    {/* </div> */}
                 </div>
-        )
+        
+    )
     })
 }
 
  
-  
-//   const display = () => {
-
-    
-    // return cafeData.favs.map((favorite, index) => {
-        
-    //   return (
-    //       <Card style={{ width: "18rem" }} bg={"dark"} text={"white"}>
-    //         <Card.Img variant="top" src={favorite.ImageURL} />
-    //         <Card.Body>
-    //           <Card.Title>{favorite.Name}</Card.Title>
-    //           <Card.Text>{favorite.Address}</Card.Text>
-    //           <div>
-    //             <li className="favorite" key={index}>
-    //               {favorite}
-    //             </li>
-    //             {/* <button className="whiteRoundedButton" onClick={deleteFavorite}>
-    //               Delete
-    //             </button> */}
-    //           </div>
-    //         </Card.Body>
-    //       </Card>
-    //   );
-//     });
-//   };
-
-
-
-//   const deleteFavorite = (e) => {
-//     let YELP = e.target.parentElement.querySelector("li").innerHTML;
-//     let id = currentUser.id;
-
-//     axios
-//       .put(API_URL_FAVORITES + id, { yelpId: YELP })
-//       .then((res) => {
-//         console.log("deleting favorites", res.data);
-//         window.location.reload();
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
-
-//   const switchBetweenPages = () => {
-//     history.push("/profile");
-//   };
-
-//   useEffect(() => {
-//     displayFavorites();
-//   }, []);
 
   return (
       <div className="container">
-      <div className="row">{display()}</div>
+      <div className="row">{favorites && display()}</div>
       </div>
   )
 };

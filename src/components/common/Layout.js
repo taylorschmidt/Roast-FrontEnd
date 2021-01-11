@@ -29,6 +29,11 @@ const Layout = (props) => {
           Roast
         </Link>
         <div className="navbar-nav mr-auto">
+        <li className="nav-item">
+            <Link to={"/home"} className="nav-link">
+              Home
+            </Link>
+          </li>
           <li className="nav-item">
             <Link to={"/about"} className="nav-link">
               About

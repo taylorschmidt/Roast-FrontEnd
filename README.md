@@ -8,7 +8,7 @@ Roast allows its user to search for the nearest cafe and read its reviews at htt
 * Yelp API
 * React Bootstrap
 ## Backend Repository
-https://github.com/SFX818/Team-8-backend
+https://github.com/taylorschmidt/Roast-BackEnd
 ## Set-Up
 * fork and clone repo
 * npm i
@@ -35,10 +35,6 @@ https://github.com/SFX818/Team-8-backend
 ![Image of Search](https://i.imgur.com/Xviid7w.png)
 ##### Cafe Show Page
 ![Image of Cafe](https://i.imgur.com/c5jYlAL.png)
-##### Profile Page
-![Image of Profile](https://i.imgur.com/8HrzoYM.png)
-##### Profile Favorites
-![Image of Favorites](https://i.imgur.com/kd6rdOP.png)
 ## Challenges
 * Utilising Axios to connect to backend routes.
 * Deploying with Surge and editing unrecognized routes.

@@ -9,22 +9,30 @@
 
 
 .profileDiv{
-    height: 500px;
-    width: 400px;
+    height: 325px;
+    width: 300px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 25px;
     display: block;
     color: whitesmoke;
     background-color: rgb(60, 60, 60);
-    text-align: center;
+    text-align: center; 
+    padding: 30px;
 }
 
-.coffeeBackground{
-    background: url("https://i.imgur.com/xDjlLZi.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    /* filter:blur(8px); */
+
+
+.profileBorder {
+    border: 1px solid whitesmoke;
+    height: 260px;
+padding: 20px
    
+}
+
+.cafeText {
+    text-align: center;
+    color: whitesmoke;
+    background-color: rgb(60, 60, 60);
+    margin-right: 25vw;
+    margin-left: 25vw
 }

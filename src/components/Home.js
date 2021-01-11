@@ -60,10 +60,6 @@ const Home = () => {
         //call yelp api once form is submitted
         yelp()
         setLoading(false)
-        let teaImage = document.querySelector('.disappearImage')
-        teaImage.style.display = "none"
-        let teaText = document.querySelector('.disappearText')
-        teaText.style.display = "none"
     }
 
 return(
@@ -84,10 +80,6 @@ return(
                         <button className="ml-1 roundedButton">Find Cafes</button>
                     {/* <ButtonSpinner text="Find Cafes" loading={loading} /> */}
         </Form>
-        </div>
-        <div className="imagesHome">     
-        <img className="disappearImage" src="https://i.imgur.com/6DsCqIF.jpg" height="500vh" width="500vw"/>
-        <div className="disappearText">Search to get started!</div>
         </div> 
         <Result yelpData={yelpData}/>
     </div>
