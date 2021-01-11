@@ -16,9 +16,7 @@ const Favorites = (params) => {
   const cafeData = params.location.state.favs
   console.log(cafeData)
 
-const deleteFavorite = (id) =>{
-    
-}
+
 
 
 const display = () => {
@@ -33,7 +31,24 @@ const display = () => {
                         <h5 className="card-title">{data.Name}</h5>
                         <p className="card-text">{data.Address}</p>
                         <button onClick={()=>{
-                            
+                            const currentUser = getCurrentUser();
+                            let id = currentUser.id
+                            console.log(data._id)
+                            let info = {
+                                cafeId: data._id
+                            }
+                            let cafeId = data._id
+                            // console.log(cafeId)
+                            axios
+                              .put("http://localhost:8080/api/user/favorites/delete/" + id + "/" + cafeId)
+                              .then((res) => {
+                                console.log("favorite was deleted:", res.data);
+                              })
+                              .catch((err) => {
+                                console.log(err);
+                              });
+                              cafeData.splice(data)
+                              window.location.reload();
                         }}>Delete</button>
                     </div>
                     </div>
