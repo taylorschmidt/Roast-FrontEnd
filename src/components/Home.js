@@ -77,7 +77,7 @@ return(
                             value={location}
                             onChange={onChangeLocation}
                         />
-                        <button className="ml-1 roundedButton">Find Cafes</button>
+                        <button className="btn btn-dark">Find Cafes</button>
                     {/* <ButtonSpinner text="Find Cafes" loading={loading} /> */}
         </Form>
         </div> 

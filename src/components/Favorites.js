@@ -34,8 +34,9 @@ const display = () => {
                         <img className="card-img-top" src={data.ImageURL} alt="cafe picture"/>
                     <div className="card-body">
                         <h5 className="card-title">{data.Name}</h5>
-                        <p className="card-text">{data.Address}</p>
-                        <button onClick={()=>{
+                        <div className="card-text">{data.Address}</div>
+                        <a href={data.YelpURL}>Website</a><br></br><br></br>
+                        <button className="btn btn-dark" onClick={()=>{
                             const currentUser = getCurrentUser();
                             let id = currentUser.id
                             console.log(data._id)

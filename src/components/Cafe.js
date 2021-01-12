@@ -176,7 +176,7 @@ const Cafe = (params) => {
           </div>
           <div className="col yelpDisclaimer">
             <div className="row"></div>
-            <i>*Cafe name, address, phone, and rating from YELP.</i>
+            {/* <i>*Cafe name, address, phone, and rating from YELP.</i> */}
           </div>
         </div>
 
