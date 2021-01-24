@@ -29,7 +29,7 @@ const Profile = () => {
       .then((res) => {
         let favorites = res.data.favorites;
         setFavs(favorites);
-        console.log('FAVES HERE', favorites)
+        
       })
 
       .catch((err) => {

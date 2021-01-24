@@ -95,7 +95,7 @@ const Comments = ({ comments, yelpId }) => {
                     currentUser.id === comment.userId._id
                   ) {
                     let id = comment._id;
-                    console.log(id);
+                    
                     axios
                       .delete(API_URL_COMMENTS + id)
                       .then((res) => {

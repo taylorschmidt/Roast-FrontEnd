@@ -26,7 +26,7 @@ const Favorites = ({favorites}) => {
 
 const display = () => {
     return favorites.map((data, index)=>{
-        console.log(data._id)
+        
         return(
                 <div key={index} className = "col s12 m6">
                     {/* <div className="card-deck"> */}
@@ -39,9 +39,9 @@ const display = () => {
                         <button className="btn btn-dark" onClick={()=>{
                             const currentUser = getCurrentUser();
                             let id = currentUser.id
-                            console.log(data._id)
+                        
                             let cafeId = data._id
-                            // console.log(cafeId)
+                          
                             axios
                               .put(API_URL_DELFAVES + id + "/" + cafeId)
                               .then((res) => {

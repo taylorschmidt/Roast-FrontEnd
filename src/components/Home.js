@@ -40,8 +40,7 @@ const Home = () => {
         .then((res) => {
             //set results to state
             setYelpData(res.data.businesses)
-            //console log the yelp results for that searched location
-            console.log(res.data.businesses)
+            
         })
         .catch((err) => {
             console.log ('error connecting to YELP')

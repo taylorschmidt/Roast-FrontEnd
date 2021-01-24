@@ -31,7 +31,7 @@ const Cafe = (params) => {
   const [loading, setLoading] = useState(false);
   const [cafeId, setCafeId] = useState("")
   const [buttonText, setButtonText] = useState('Add to Favorites!')
-  console.log(cafeData)
+  
   //error message in state
   const message = "You must be logged in to add favorites or reviews.";
 
@@ -49,7 +49,7 @@ const Cafe = (params) => {
     } else {
       setButtonText('Added to Favorites!')
       let id = currentUser.id
-      console.log("CAFE ID:", cafeId)
+  
       axios
         .put(API_URL_FAVORITES + id + "/" + cafeId)
         .then((res) => console.log("favorites:", res))
@@ -58,7 +58,7 @@ const Cafe = (params) => {
   };
 
   const addYelpInfo = () => {
-    console.log("Yelp: ", { YelpId: yelpId.id });
+    
     const yelp = {
       YelpId: yelpId.id,
       Name: yelpId.name,
@@ -71,8 +71,8 @@ const Cafe = (params) => {
     axios
       .post(API_URL_CAFE, yelp)
       .then((res) => {
-        console.log("here is our new cafe saved on page load", res.data);
-        console.log('CAFE ID!', res.data._id)
+        
+        
         setCafeId(res.data._id)
       })
       .catch((err) => {
