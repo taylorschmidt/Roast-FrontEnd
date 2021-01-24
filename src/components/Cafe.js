@@ -30,6 +30,7 @@ const Cafe = (params) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [cafeId, setCafeId] = useState("")
+  const [buttonText, setButtonText] = useState('Add to Favorites!')
   console.log(cafeData)
   //error message in state
   const message = "You must be logged in to add favorites or reviews.";
@@ -46,6 +47,7 @@ const Cafe = (params) => {
       setError(true);
       return <div></div>;
     } else {
+      setButtonText('Added to Favorites!')
       let id = currentUser.id
       console.log("CAFE ID:", cafeId)
       axios
@@ -169,7 +171,7 @@ const Cafe = (params) => {
           <div className="row favoritesRow">
             <div className="col text-center">
               <button className="btn btn-light" onClick={handleClick}>
-                Add to Favorites!
+                {buttonText}
               </button>
               {error && <div>{message}</div>}
             </div>

@@ -29,6 +29,7 @@ const Profile = () => {
       .then((res) => {
         let favorites = res.data.favorites;
         setFavs(favorites);
+        console.log('FAVES HERE', favorites)
       })
 
       .catch((err) => {
@@ -53,7 +54,7 @@ const Profile = () => {
             <strong>Name:</strong>
             {currentUser.username}
           </h6>
-          <h6>
+          <h6 className='email'>
             <strong>Email:</strong>
             {currentUser.email}
           </h6>

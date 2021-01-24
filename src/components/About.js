@@ -5,7 +5,7 @@ const About = () => {
         return (
             <div className="row">
             <div className="col-sm">
-                <div className="card">
+                <div className="card aboutCard">
                     <img className="profile-img-card" src="https://i.ibb.co/9gZSnJQ/P8143678.jpg" alt="P8143678" border="0" />
                     <div className="card-body">
                         <h3 className="card-title">Taylor Schmidt</h3>
@@ -14,7 +14,7 @@ const About = () => {
                 </div>
                 </div>
                 <div className="col-sm">
-                <div className="card">
+                <div className="card aboutCard">
                     <img className="profile-img-card" src="https://i.ibb.co/NtFgbFY/FB-IMG-1608238633178.jpg" alt="FB-IMG-1608238633178" border="0" />
                     <div className="card-body">
                         <h3 className="card-title">Elizabeth Chandra</h3>
@@ -23,7 +23,7 @@ const About = () => {
                 </div>
                 </div>
                 <div className="col-sm">
-                <div className="card">
+                <div className="card aboutCard">
                     <img 
                         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
                         alt="profile-img"
