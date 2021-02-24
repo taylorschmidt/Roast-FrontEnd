@@ -3,6 +3,7 @@ import React from 'react'
 const About = () => {
     const team = () => {
         return (
+            <div>
             <div className="row">
             <div className="col-sm">
                 <div className="card aboutCard">
@@ -35,6 +36,7 @@ const About = () => {
                     </div>
                 </div>
                 </div>
+            </div>
             </div>
         )
     }
