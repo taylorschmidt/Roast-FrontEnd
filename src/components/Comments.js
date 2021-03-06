@@ -14,9 +14,11 @@ const Comments = ({ comments, yelpId }) => {
 
   const display = () => {
     const currentUser = getCurrentUser();
+    console.log(currentUser)
 
     return comments.map((comment, index) => {
       return (
+       
         <div className="row comment" key={index}>
           
           {!currentUser && (
@@ -24,8 +26,6 @@ const Comments = ({ comments, yelpId }) => {
             <div>
             <strong>{comment.userId.username}:</strong>{" "}{comment.content}
             </div>
-           
-           
            </>
           )}
           
@@ -65,7 +65,6 @@ const Comments = ({ comments, yelpId }) => {
                     currentUser &&
                     currentUser.id === comment.userId._id
                   ) {
-                    console.log("it worked! only user should see this.");
                     let id = comment._id;
                     axios
                       .put(API_URL_COMMENTS + id, {

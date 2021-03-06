@@ -40,6 +40,7 @@ const Home = () => {
         .then((res) => {
             //set results to state
             setYelpData(res.data.businesses)
+            setLoading(false)
             
         })
         .catch((err) => {
@@ -58,7 +59,7 @@ const Home = () => {
         form.current.validateAll()
         //call yelp api once form is submitted
         yelp()
-        setLoading(false)
+        setLoading(true)
     }
 
 return(
@@ -80,6 +81,7 @@ return(
                     {/* <ButtonSpinner text="Find Cafes" loading={loading} /> */}
         </Form>
         </div> 
+        {loading && (<div>Loading...</div>)}
         <Result yelpData={yelpData}/>
     </div>
 

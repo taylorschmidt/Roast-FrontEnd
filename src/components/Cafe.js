@@ -113,7 +113,7 @@ const Cafe = (params) => {
       .catch((err) => {
         console.log(err);
       });
-    window.location.reload();
+      setTimeout(function(){ window.location.reload()}, 200);
   };
 
   const displayComments = () => {

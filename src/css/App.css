@@ -113,8 +113,9 @@ label {
 }
 
 .commentForm {
-position: static; 
-bottom: 0;
+  position: absolute; 
+  bottom: 0px;
+  text-align: center;
 }
 
 .commentFormz {
